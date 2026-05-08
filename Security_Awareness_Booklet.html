@@ -1,0 +1,2071 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Security Awareness </title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800&display=swap');
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: 'Segoe UI', Arial, sans-serif; background: #f5f7fa; color: #1a1a2e; }
+
+  
+  .cover {
+    background: linear-gradient(135deg, #1F3A6E 0%, #2E75B6 60%, #4BA3E3 100%);
+    min-height: 100vh; display: flex; flex-direction: column;
+    align-items: center; justify-content: center; text-align: center;
+    padding: 60px 40px; page-break-after: always;
+  }
+  .cover-badge {
+    background: rgba(255,255,255,0.15); border: 1px solid rgba(255,255,255,0.3);
+    color: #fff; font-size: 13px; font-weight: 600; letter-spacing: 2px;
+    padding: 6px 20px; border-radius: 20px; margin-bottom: 32px; text-transform: uppercase;
+  }
+  .cover h1 { font-size: 54px; font-weight: 800; color: #fff; line-height: 1.1; margin-bottom: 12px; }
+  .cover h1 span { color: #A8D8FF; }
+  .cover-sub { font-size: 20px; color: rgba(255,255,255,0.8); margin-bottom: 48px; }
+  .cover-levels { display: flex; gap: 10px; flex-wrap: wrap; justify-content: center; margin-bottom: 48px; }
+  .cover-level-pill {
+    background: rgba(255,255,255,0.18); border: 1px solid rgba(255,255,255,0.35);
+    color: #fff; font-size: 13px; font-weight: 600;
+    padding: 8px 18px; border-radius: 30px;
+  }
+  .cover-divider { width: 60px; height: 3px; background: rgba(255,255,255,0.4); border-radius: 2px; margin: 0 auto 24px; }
+  .cover-footer { font-size: 13px; color: rgba(255,255,255,0.55); letter-spacing: 1px; }
+
+  
+  .main { max-width: 900px; margin: 0 auto; padding: 40px 24px 80px; }
+
+
+  .level-header {
+    display: flex; align-items: center; gap: 18px;
+    background: #fff; border-radius: 14px; padding: 24px 28px;
+    margin-bottom: 24px; margin-top: 48px;
+    border-left: 5px solid #2E75B6;
+    box-shadow: 0 2px 12px rgba(46,117,182,0.08);
+  }
+  .level-badge {
+    background: #2E75B6; color: #fff; font-size: 13px; font-weight: 800;
+    width: 52px; height: 52px; border-radius: 12px;
+    display: flex; align-items: center; justify-content: center;
+    flex-shrink: 0; letter-spacing: 1px;
+  }
+  .level-header h2 { font-size: 20px; font-weight: 700; color: #1F3A6E; margin-bottom: 3px; }
+  .level-header p { font-size: 13px; color: #6b7280; }
+
+ 
+  .concepts-section { margin-bottom: 28px; }
+  .section-label {
+    font-size: 11px; font-weight: 700; letter-spacing: 1.5px;
+    text-transform: uppercase; color: #2E75B6; margin-bottom: 12px;
+    display: flex; align-items: center; gap: 8px;
+  }
+  .section-label::after { content: ''; flex: 1; height: 1px; background: #dce8f5; }
+  .concepts-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+  .concept-card {
+    background: #fff; border-radius: 10px; padding: 13px 16px;
+    border: 1px solid #e2ecf8;
+  }
+  .concept-key { font-size: 12px; font-weight: 700; color: #2E75B6; margin-bottom: 4px; }
+  .concept-val { font-size: 13px; color: #374151; line-height: 1.5; }
+
+
+  .questions-section { display: grid; gap: 14px; }
+  .q-card {
+    background: #fff; border-radius: 12px; padding: 20px 22px;
+    border: 1px solid #e8eef5;
+  }
+  .q-num-row { display: flex; align-items: flex-start; gap: 12px; margin-bottom: 14px; }
+  .q-num {
+    background: #EBF3FB; color: #2E75B6; font-size: 11px; font-weight: 800;
+    padding: 3px 9px; border-radius: 20px; flex-shrink: 0; margin-top: 2px;
+    letter-spacing: 0.5px;
+  }
+  .q-text { font-size: 14px; font-weight: 600; color: #1a1a2e; line-height: 1.5; }
+  .options { display: grid; grid-template-columns: 1fr 1fr; gap: 7px; margin-bottom: 14px; }
+  .opt {
+    font-size: 13px; color: #4b5563; background: #f9fafb;
+    border: 1px solid #e5e7eb; border-radius: 8px;
+    padding: 8px 12px; line-height: 1.4;
+  }
+  .answer-row {
+    display: flex; align-items: center; gap: 8px;
+    background: #EDFAF3; border-radius: 8px; padding: 9px 14px;
+    border: 1px solid #A7DFBF;
+  }
+  .answer-check { font-size: 15px; color: #16a34a; font-weight: 700; }
+  .answer-text { font-size: 13px; font-weight: 600; color: #15803d; }
+
+ 
+  @media print {
+    body { background: #fff; }
+    .cover { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+    .level-header { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+    .answer-row { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+    .concept-key { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+    .q-num { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+    .level-badge { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+    .cover-badge, .cover-level-pill { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+    .page-break { page-break-before: always; }
+    .q-card, .concept-card { page-break-inside: avoid; }
+  }
+
+  :root {
+    color-scheme: light;
+    --quiz-bg: radial-gradient(circle at 10% -10%, #c4ecff 0%, #e9f4ff 36%, #f6fbff 66%, #ffffff 100%);
+    --quiz-card: #ffffff;
+    --quiz-text: #0f172a;
+    --quiz-subtle: #5b6475;
+    --quiz-primary: #1d4ed8;
+    --quiz-primary-soft: #dbeafe;
+    --quiz-accent: #0ea5e9;
+    --quiz-success: #16a34a;
+    --quiz-danger: #ef4444;
+    --quiz-border: #d6e3f8;
+    --quiz-head-bg: linear-gradient(135deg, #eff6ff 0%, #f0f9ff 100%);
+    --quiz-head-border: #d9e7fb;
+    --quiz-kicker-bg: #ffffff;
+    --quiz-kicker-text: #1e40af;
+    --quiz-kicker-border: #cfe0fb;
+    --quiz-title: #0f1f45;
+    --quiz-stat-bg: #f9fbff;
+    --quiz-stat-border: #dbe7f9;
+    --quiz-stat-label: #64748b;
+    --quiz-stat-value: #0f172a;
+    --quiz-progress-track: #e6eefc;
+    --quiz-question-bg: #ffffff;
+    --quiz-question-border: #dbe8f9;
+    --quiz-question-text: #0b1229;
+    --quiz-chip-bg: #dbeafe;
+    --quiz-chip-border: #bfdbfe;
+    --quiz-chip-text: #1e3a8a;
+    --quiz-choice-bg: #f8fbff;
+    --quiz-choice-border: #d6e4f8;
+    --quiz-choice-text: #1f2a44;
+    --quiz-choice-hover-bg: #ffffff;
+    --quiz-choice-hover-border: #8eb0f6;
+    --quiz-choice-hover-shadow: 0 10px 20px rgba(59, 130, 246, 0.16);
+    --quiz-ghost-bg: #ffffff;
+    --quiz-ghost-text: #1e3a8a;
+    --quiz-ghost-border: #c7d9fb;
+    --quiz-ghost-hover-bg: #f0f6ff;
+    --quiz-result-title: #0f172a;
+    --quiz-result-sub: #475569;
+    --quiz-theme-btn-bg: #ffffff;
+    --quiz-theme-btn-text: #0f172a;
+    --quiz-theme-btn-border: #c9daf8;
+    --quiz-theme-btn-hover-bg: #eaf2ff;
+    --quiz-focus: rgba(37, 99, 235, 0.35);
+    --quiz-shadow: 0 22px 45px rgba(17, 24, 39, 0.08);
+  }
+
+  :root[data-theme="dark"] {
+    color-scheme: dark;
+    --quiz-bg: radial-gradient(circle at 0% 0%, #243555 0%, #131f36 44%, #0b1324 100%);
+    --quiz-card: #111b2e;
+    --quiz-text: #e6edf8;
+    --quiz-subtle: #a8b5c9;
+    --quiz-primary: #60a5fa;
+    --quiz-primary-soft: #1e3a5f;
+    --quiz-accent: #38bdf8;
+    --quiz-success: #4ade80;
+    --quiz-danger: #f87171;
+    --quiz-border: #2b4368;
+    --quiz-head-bg: linear-gradient(135deg, #152643 0%, #112236 100%);
+    --quiz-head-border: #2a3f61;
+    --quiz-kicker-bg: #182b4a;
+    --quiz-kicker-text: #bfdbfe;
+    --quiz-kicker-border: #355179;
+    --quiz-title: #eaf2ff;
+    --quiz-stat-bg: #14233a;
+    --quiz-stat-border: #2b4265;
+    --quiz-stat-label: #a4b5cf;
+    --quiz-stat-value: #f8fbff;
+    --quiz-progress-track: #233958;
+    --quiz-question-bg: #121f35;
+    --quiz-question-border: #2f486f;
+    --quiz-question-text: #edf3ff;
+    --quiz-chip-bg: #1c3558;
+    --quiz-chip-border: #345784;
+    --quiz-chip-text: #d6e8ff;
+    --quiz-choice-bg: #152641;
+    --quiz-choice-border: #325177;
+    --quiz-choice-text: #dce8fb;
+    --quiz-choice-hover-bg: #1a3154;
+    --quiz-choice-hover-border: #6ca8ff;
+    --quiz-choice-hover-shadow: 0 12px 24px rgba(2, 6, 23, 0.5);
+    --quiz-ghost-bg: #142846;
+    --quiz-ghost-text: #d9e9ff;
+    --quiz-ghost-border: #3b5b88;
+    --quiz-ghost-hover-bg: #1a355c;
+    --quiz-result-title: #eff5ff;
+    --quiz-result-sub: #b8c6db;
+    --quiz-theme-btn-bg: #1b3153;
+    --quiz-theme-btn-text: #eef5ff;
+    --quiz-theme-btn-border: #436694;
+    --quiz-theme-btn-hover-bg: #27436f;
+    --quiz-focus: rgba(125, 180, 255, 0.45);
+    --quiz-shadow: 0 20px 45px rgba(2, 6, 23, 0.45);
+  }
+
+  body.quiz-ready {
+    min-height: 100vh;
+    position: relative;
+    background: var(--quiz-bg);
+    color: var(--quiz-text);
+    font-family: "Poppins", "Segoe UI", Arial, sans-serif;
+    transition: background 0.4s ease, color 0.35s ease;
+  }
+
+  body.quiz-ready .cover,
+  body.quiz-ready .main {
+    display: none;
+  }
+
+  #quiz-app {
+    max-width: 940px;
+    margin: 0 auto;
+    padding: 34px 20px 70px;
+  }
+
+  .quiz-shell {
+    background: var(--quiz-card);
+    border: 1px solid var(--quiz-border);
+    border-radius: 24px;
+    box-shadow: var(--quiz-shadow);
+    overflow: hidden;
+    animation: fadeInUp 0.45s ease;
+  }
+
+  .quiz-head {
+    padding: 30px 30px 20px;
+    background: var(--quiz-head-bg);
+    border-bottom: 1px solid var(--quiz-head-border);
+  }
+
+  .quiz-head-top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    margin-bottom: 12px;
+  }
+
+  .quiz-kicker {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 1.3px;
+    color: var(--quiz-kicker-text);
+    text-transform: uppercase;
+    background: var(--quiz-kicker-bg);
+    padding: 8px 12px;
+    border-radius: 99px;
+    border: 1px solid var(--quiz-kicker-border);
+  }
+
+  .quiz-title {
+    font-size: clamp(24px, 3.2vw, 34px);
+    font-weight: 800;
+    line-height: 1.16;
+    margin-bottom: 8px;
+    color: var(--quiz-title);
+  }
+
+  .quiz-desc {
+    color: var(--quiz-subtle);
+    font-size: 14px;
+    line-height: 1.7;
+  }
+
+  .quiz-body {
+    padding: 24px 30px 32px;
+  }
+
+  .stats-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 10px;
+    margin-bottom: 20px;
+  }
+
+  .stat-box {
+    border: 1px solid var(--quiz-stat-border);
+    border-radius: 14px;
+    padding: 12px 14px;
+    background: var(--quiz-stat-bg);
+  }
+
+  .stat-label {
+    display: block;
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: var(--quiz-stat-label);
+    margin-bottom: 5px;
+  }
+
+  .stat-value {
+    font-size: 16px;
+    font-weight: 700;
+    color: var(--quiz-stat-value);
+  }
+
+  .progress-wrap {
+    background: var(--quiz-progress-track);
+    border-radius: 999px;
+    height: 11px;
+    margin-bottom: 24px;
+    overflow: hidden;
+  }
+
+  .progress-bar {
+    height: 100%;
+    border-radius: inherit;
+    background: linear-gradient(90deg, var(--quiz-primary), var(--quiz-accent));
+    transition: width 0.35s ease;
+  }
+
+  .question-card {
+    border: 1px solid var(--quiz-question-border);
+    border-radius: 16px;
+    padding: 20px;
+    background: var(--quiz-question-bg);
+  }
+
+  .question-meta {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    margin-bottom: 15px;
+  }
+
+  .meta-chip {
+    font-size: 12px;
+    font-weight: 700;
+    color: var(--quiz-chip-text);
+    background: var(--quiz-chip-bg);
+    border: 1px solid var(--quiz-chip-border);
+    padding: 6px 10px;
+    border-radius: 999px;
+  }
+
+  .question-text {
+    font-size: clamp(18px, 2.4vw, 22px);
+    line-height: 1.55;
+    margin-bottom: 16px;
+    font-weight: 700;
+    color: var(--quiz-question-text);
+  }
+
+  .choice-list {
+    display: grid;
+    gap: 10px;
+  }
+
+  .choice-btn {
+    width: 100%;
+    border: 1px solid var(--quiz-choice-border);
+    border-radius: 12px;
+    background: var(--quiz-choice-bg);
+    color: var(--quiz-choice-text);
+    text-align: left;
+    padding: 12px 14px;
+    font-size: 14px;
+    line-height: 1.55;
+    cursor: pointer;
+    transition: transform 0.18s ease, border-color 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
+  }
+
+  .choice-btn:hover {
+    transform: translateY(-2px);
+    border-color: var(--quiz-choice-hover-border);
+    box-shadow: var(--quiz-choice-hover-shadow);
+    background: var(--quiz-choice-hover-bg);
+  }
+
+  .choice-btn.correct {
+    border-color: #86efac;
+    background: #ecfdf3;
+    color: #14532d;
+    animation: pulseOk 0.35s ease;
+  }
+
+  .choice-btn.wrong {
+    border-color: #fca5a5;
+    background: #fef2f2;
+    color: #7f1d1d;
+  }
+
+  .choice-btn:disabled {
+    cursor: not-allowed;
+    opacity: 1;
+  }
+
+  .feedback {
+    margin-top: 14px;
+    border-radius: 12px;
+    padding: 12px 14px;
+    font-size: 14px;
+    border: 1px solid transparent;
+  }
+
+  .feedback.ok {
+    color: #14532d;
+    border-color: #86efac;
+    background: #ecfdf3;
+  }
+
+  .feedback.no {
+    color: #7f1d1d;
+    border-color: #fecaca;
+    background: #fef2f2;
+  }
+
+  .quiz-actions {
+    margin-top: 18px;
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+  }
+
+  .quiz-config {
+    margin-top: 18px;
+    border: 1px solid var(--quiz-stat-border);
+    border-radius: 14px;
+    background: var(--quiz-stat-bg);
+    padding: 12px;
+    text-align: left;
+  }
+
+  .quiz-config label {
+    display: block;
+    font-size: 13px;
+    font-weight: 700;
+    color: var(--quiz-stat-label);
+    margin-bottom: 8px;
+  }
+
+  .quiz-config input {
+    width: 100%;
+    border: 1px solid var(--quiz-choice-border);
+    border-radius: 10px;
+    background: var(--quiz-choice-bg);
+    color: var(--quiz-choice-text);
+    padding: 10px 12px;
+    font-size: 15px;
+    font-weight: 700;
+  }
+
+  .quiz-config small {
+    display: block;
+    margin-top: 8px;
+    font-size: 12px;
+    color: var(--quiz-subtle);
+  }
+
+  .auto-next-note {
+    display: inline-flex;
+    align-items: center;
+    border-radius: 999px;
+    padding: 8px 12px;
+    font-size: 12px;
+    font-weight: 700;
+    color: #1e3a8a;
+    background: #dbeafe;
+    border: 1px solid #93c5fd;
+    animation: fadeInUp 0.25s ease both;
+  }
+
+  .quiz-btn {
+    border: 1px solid transparent;
+    border-radius: 12px;
+    padding: 11px 16px;
+    font-size: 14px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.2s ease;
+  }
+
+  .quiz-btn.primary {
+    background: linear-gradient(135deg, #2563eb, #0ea5e9);
+    color: #ffffff;
+    box-shadow: 0 10px 18px rgba(37, 99, 235, 0.28);
+  }
+
+  .quiz-btn.primary:hover {
+    filter: brightness(1.06);
+    transform: translateY(-1px);
+  }
+
+  .quiz-btn.ghost {
+    background: var(--quiz-ghost-bg);
+    color: var(--quiz-ghost-text);
+    border-color: var(--quiz-ghost-border);
+  }
+
+  .quiz-btn.ghost:hover {
+    background: var(--quiz-ghost-hover-bg);
+  }
+
+  .theme-toggle {
+    background: var(--quiz-theme-btn-bg);
+    color: var(--quiz-theme-btn-text);
+    border-color: var(--quiz-theme-btn-border);
+    min-width: 138px;
+    text-align: center;
+    font-weight: 700;
+  }
+
+  .theme-toggle:hover {
+    background: var(--quiz-theme-btn-hover-bg);
+  }
+
+  .result-pane {
+    text-align: center;
+    padding: 18px 14px 8px;
+  }
+
+  .result-score {
+    font-size: clamp(34px, 5vw, 48px);
+    color: var(--quiz-result-title);
+    font-weight: 800;
+    margin-bottom: 8px;
+  }
+
+  .result-sub {
+    color: var(--quiz-result-sub);
+    font-size: 15px;
+    line-height: 1.7;
+    margin-bottom: 18px;
+  }
+
+  .result-bulletins {
+    display: flex;
+    gap: 12px;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin: 0 0 16px;
+  }
+
+  .result-bulletin {
+    min-width: 220px;
+    border-radius: 14px;
+    border: 1px solid transparent;
+    padding: 10px 14px;
+    text-align: left;
+    box-shadow: 0 10px 20px rgba(15, 23, 42, 0.08);
+    animation: fadeInUp 0.35s ease both;
+  }
+
+  .result-bulletin strong {
+    display: block;
+    font-size: 14px;
+    margin-bottom: 2px;
+  }
+
+  .result-bulletin span {
+    font-size: 13px;
+    opacity: 0.95;
+  }
+
+  .result-bulletin-icon {
+    display: inline-flex;
+    width: 24px;
+    height: 24px;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    margin-right: 8px;
+    background: rgba(255, 255, 255, 0.55);
+    font-size: 14px;
+    vertical-align: middle;
+  }
+
+  .result-bulletin.completion {
+    background: linear-gradient(135deg, #dbeafe 0%, #eff6ff 100%);
+    border-color: #93c5fd;
+    color: #1e3a8a;
+  }
+
+  .result-bulletin.win {
+    background: linear-gradient(135deg, #dcfce7 0%, #f0fdf4 100%);
+    border-color: #86efac;
+    color: #166534;
+  }
+
+  .result-bulletin.good {
+    background: linear-gradient(135deg, #ccfbf1 0%, #f0fdfa 100%);
+    border-color: #5eead4;
+    color: #115e59;
+  }
+
+  .result-bulletin.review {
+    background: linear-gradient(135deg, #fef3c7 0%, #fffbeb 100%);
+    border-color: #fcd34d;
+    color: #92400e;
+  }
+
+  .result-bulletin.retry {
+    background: linear-gradient(135deg, #fee2e2 0%, #fef2f2 100%);
+    border-color: #fca5a5;
+    color: #991b1b;
+  }
+
+  .result-bulletin-title {
+    display: flex;
+    align-items: center;
+    font-size: 14px;
+    margin-bottom: 2px;
+    font-weight: 800;
+  }
+
+  .bulletin-rain-layer {
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    overflow: hidden;
+    z-index: 9999;
+  }
+
+  .bulletin-drop {
+    position: absolute;
+    top: -72px;
+    left: 0;
+    border-radius: 999px;
+    border: 1px solid transparent;
+    padding: 8px 12px;
+    font-size: 13px;
+    font-weight: 800;
+    letter-spacing: 0.2px;
+    white-space: nowrap;
+    box-shadow: 0 10px 20px rgba(15, 23, 42, 0.2);
+    animation-name: bulletinRainFall;
+    animation-timing-function: linear;
+    animation-fill-mode: forwards;
+    opacity: 0;
+  }
+
+  .bulletin-drop.completion {
+    background: linear-gradient(135deg, #dbeafe 0%, #eff6ff 100%);
+    border-color: #93c5fd;
+    color: #1e3a8a;
+  }
+
+  .bulletin-drop.win {
+    background: linear-gradient(135deg, #dcfce7 0%, #f0fdf4 100%);
+    border-color: #86efac;
+    color: #166534;
+  }
+
+  .bulletin-drop.good {
+    background: linear-gradient(135deg, #ccfbf1 0%, #f0fdfa 100%);
+    border-color: #5eead4;
+    color: #115e59;
+  }
+
+  .bulletin-drop.review {
+    background: linear-gradient(135deg, #fef3c7 0%, #fffbeb 100%);
+    border-color: #fcd34d;
+    color: #92400e;
+  }
+
+  .bulletin-drop.retry {
+    background: linear-gradient(135deg, #fee2e2 0%, #fef2f2 100%);
+    border-color: #fca5a5;
+    color: #991b1b;
+  }
+
+  body.quiz-ready .quiz-shell,
+  body.quiz-ready .quiz-head,
+  body.quiz-ready .quiz-kicker,
+  body.quiz-ready .quiz-title,
+  body.quiz-ready .quiz-desc,
+  body.quiz-ready .stat-box,
+  body.quiz-ready .stat-label,
+  body.quiz-ready .stat-value,
+  body.quiz-ready .progress-wrap,
+  body.quiz-ready .question-card,
+  body.quiz-ready .meta-chip,
+  body.quiz-ready .question-text,
+  body.quiz-ready .choice-btn,
+  body.quiz-ready .feedback,
+  body.quiz-ready .quiz-btn,
+  body.quiz-ready .result-score,
+  body.quiz-ready .result-sub {
+    transition: background-color 0.35s ease, border-color 0.35s ease, color 0.35s ease, box-shadow 0.35s ease;
+  }
+
+  body.quiz-ready button:focus-visible {
+    outline: 3px solid var(--quiz-focus);
+    outline-offset: 2px;
+  }
+
+  @keyframes fadeInUp {
+    from { opacity: 0; transform: translateY(14px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  @keyframes pulseOk {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.02); }
+    100% { transform: scale(1); }
+  }
+
+  @keyframes bulletinRainFall {
+    0% {
+      transform: translate3d(0, -30px, 0) rotate(-10deg);
+      opacity: 0;
+    }
+    10% {
+      opacity: 1;
+    }
+    100% {
+      transform: translate3d(var(--rain-drift, 0px), 110vh, 0) rotate(14deg);
+      opacity: 0.98;
+    }
+  }
+
+  @media (max-width: 760px) {
+    #quiz-app { padding: 18px 14px 42px; }
+    .quiz-head { padding: 20px 18px 14px; }
+    .quiz-head-top { flex-direction: column; align-items: stretch; }
+    .theme-toggle { width: 100%; }
+    .quiz-body { padding: 16px 14px 20px; }
+    .stats-grid { grid-template-columns: 1fr; }
+    .question-card { padding: 14px; }
+    .auto-next-note { width: 100%; justify-content: center; }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    * {
+      animation: none !important;
+      transition: none !important;
+    }
+  }
+</style>
+</head>
+<body>
+
+
+<div class="cover">
+  <div class="cover-badge">Study Booklet Â· Exam Prep</div>
+  <h1>Security <span>Awareness</span><br>Training</h1>
+  <p class="cover-sub">Levels L1  L6 &nbsp;|&nbsp; Questions & Key Concepts</p>
+  <div class="cover-levels">
+    <div class="cover-level-pill">L1 · Training Techniques</div>
+    <div class="cover-level-pill">L2 · Gamification</div>
+    <div class="cover-level-pill">L3 · Measuring Effectiveness</div>
+    <div class="cover-level-pill">L4 · Risk Management</div>
+    <div class="cover-level-pill">L5 · Risk Assessment</div>
+    <div class="cover-level-pill">L6 · Cyber Resilience</div>
+  </div>
+  <div class="cover-divider"></div>
+  <div class="cover-footer">60 Questions &nbsp;Â·&nbsp; 6 Levels &nbsp;Â·&nbsp; Complete Review</div>
+</div>
+
+
+<div class="main">
+
+
+<div class="level-header">
+  <div class="level-badge">L1</div>
+  <div>
+    <h2>Advanced Security Awareness Training Techniques</h2>
+    <p>Phishing, micro-learning, gamification, and AI-driven personalization</p>
+  </div>
+</div>
+
+<div class="concepts-section">
+  <div class="section-label">Key Concepts</div>
+  <div class="concepts-grid">
+    <div class="concept-card"><div class="concept-key">Primary Goal</div><div class="concept-val">Change employee security culture and behavior â€” not just memorize facts</div></div>
+    <div class="concept-card"><div class="concept-key">Gamification</div><div class="concept-val">Uses points, badges, and leaderboards to make training competitive and motivating</div></div>
+    <div class="concept-card"><div class="concept-key">Micro-learning</div><div class="concept-val">Small, focused doses of information â€” easier to absorb than long annual sessions</div></div>
+    <div class="concept-card"><div class="concept-key">Teachable Moment</div><div class="concept-val">Immediately instructing employees right after they click a simulated phishing link</div></div>
+    <div class="concept-card"><div class="concept-key">Spear Phishing</div><div class="concept-val">A targeted attack personalized using the victim's own information</div></div>
+    <div class="concept-card"><div class="concept-key">Hover Technology</div><div class="concept-val">Reveals the real hidden URL â€” always verify it matches the displayed link text</div></div>
+    <div class="concept-card"><div class="concept-key">AI in Training</div><div class="concept-val">Personalizes training content based on each employee's behavior patterns</div></div>
+    <div class="concept-card"><div class="concept-key">Enable Macros Trick</div><div class="concept-val">Malicious Office files request macro access to execute hidden malware</div></div>
+  </div>
+</div>
+
+<div class="questions-section">
+  <div class="section-label">Practice Questions</div>
+
+  <div class="q-card">
+    <div class="q-num-row"><span class="q-num">Q1</span><span class="q-text">What is the primary goal of advanced security awareness training?</span></div>
+    <div class="options">
+      <div class="opt">A. Give an annual presentation</div>
+      <div class="opt">B. Change employee security culture and behavior</div>
+      <div class="opt">C. Force employees to memorize software code</div>
+      <div class="opt">D. Reduce number of computers</div>
+    </div>
+    <div class="answer-row"><span class="answer-check">âœ“</span><span class="answer-text">Correct Answer: B</span></div>
+  </div>
+
+  <div class="q-card">
+    <div class="q-num-row"><span class="q-num">Q2</span><span class="q-text">Which technique turns training into a competition with rewards?</span></div>
+    <div class="options">
+      <div class="opt">A. Gamification</div>
+      <div class="opt">B. Micro-learning</div>
+      <div class="opt">C. Phishing Simulation</div>
+      <div class="opt">D. Behavioral Analytics</div>
+    </div>
+    <div class="answer-row"><span class="answer-check">âœ“</span><span class="answer-text">Correct Answer: A</span></div>
+  </div>
+
+  <div class="q-card">
+    <div class="q-num-row"><span class="q-num">Q3</span><span class="q-text">What is a "teachable moment" in a phishing simulation?</span></div>
+    <div class="options">
+      <div class="opt">A. Punishing the employee who made a mistake</div>
+      <div class="opt">B. Immediately instructing the employee after they click a fake link</div>
+      <div class="opt">C. A year-end training session</div>
+      <div class="opt">D. Sending a thank-you to all employees</div>
+    </div>
+    <div class="answer-row"><span class="answer-check">âœ“</span><span class="answer-text">Correct Answer: B</span></div>
+  </div>
+
+  <div class="q-card">
+    <div class="q-num-row"><span class="q-num">Q4</span><span class="q-text">When using hover technology, what should you check in a link?</span></div>
+    <div class="options">
+      <div class="opt">A. The color of the link</div>
+      <div class="opt">B. The hidden real URL matches the displayed text</div>
+      <div class="opt">C. Number of characters in the link</div>
+      <div class="opt">D. The font used in the message</div>
+    </div>
+    <div class="answer-row"><span class="answer-check">âœ“</span><span class="answer-text">Correct Answer: B</span></div>
+  </div>
+
+  <div class="q-card">
+    <div class="q-num-row"><span class="q-num">Q5</span><span class="q-text">What is the main advantage of micro-learning over traditional training?</span></div>
+    <div class="options">
+      <div class="opt">A. Presents lengthy complex information</div>
+      <div class="opt">B. Provides small, easy-to-absorb doses of information</div>
+      <div class="opt">C. Eliminates the need for technology</div>
+      <div class="opt">D. Done only once every five years</div>
+    </div>
+    <div class="answer-row"><span class="answer-check">âœ“</span><span class="answer-text">Correct Answer: B</span></div>
+  </div>
+
+  <div class="q-card">
+    <div class="q-num-row"><span class="q-num">Q6</span><span class="q-text">What is spear phishing?</span></div>
+    <div class="options">
+      <div class="opt">A. Sending random messages to millions</div>
+      <div class="opt">B. Personalized message targeting a specific person using their own info</div>
+      <div class="opt">C. A direct attack on company servers</div>
+      <div class="opt">D. Antivirus software</div>
+    </div>
+    <div class="answer-row"><span class="answer-check">âœ“</span><span class="answer-text">Correct Answer: B</span></div>
+  </div>
+
+  <div class="q-card">
+    <div class="q-num-row"><span class="q-num">Q7</span><span class="q-text">You get a reply from a colleague on an old chat with an unexpected file. What do you do?</span></div>
+    <div class="options">
+      <div class="opt">A. Open it â€” it's from a trusted person</div>
+      <div class="opt">B. Download and scan on your personal device</div>
+      <div class="opt">C. Call the colleague to verify the file's authenticity</div>
+      <div class="opt">D. Ignore and delete without telling anyone</div>
+    </div>
+    <div class="answer-row"><span class="answer-check">âœ“</span><span class="answer-text">Correct Answer: C</span></div>
+  </div>
+
+  <div class="q-card">
+    <div class="q-num-row"><span class="q-num">Q8</span><span class="q-text">Why do malicious Office files ask you to "Enable Macros"?</span></div>
+    <div class="options">
+      <div class="opt">A. To improve font quality</div>
+      <div class="opt">B. To run hidden malware within the file</div>
+      <div class="opt">C. To increase file-opening speed</div>
+      <div class="opt">D. Because the version is outdated</div>
+    </div>
+    <div class="answer-row"><span class="answer-check">âœ“</span><span class="answer-text">Correct Answer: B</span></div>
+  </div>
+
+  <div class="q-card">
+    <div class="q-num-row"><span class="q-num">Q9</span><span class="q-text">What is the dominant characteristic of advanced phishing email language?</span></div>
+    <div class="options">
+      <div class="opt">A. Poor language and spelling mistakes</div>
+      <div class="opt">B. Creating urgency and psychological pressure</div>
+      <div class="opt">C. Unrealistic financial offers</div>
+      <div class="opt">D. Excessive emojis</div>
+    </div>
+    <div class="answer-row"><span class="answer-check">âœ“</span><span class="answer-text">Correct Answer: B</span></div>
+  </div>
+
+  <div class="q-card">
+    <div class="q-num-row"><span class="q-num">Q10</span><span class="q-text">How does AI help in advanced security awareness training?</span></div>
+    <div class="options">
+      <div class="opt">A. By replacing all employees with machines</div>
+      <div class="opt">B. By tailoring content based on each employee's behavior</div>
+      <div class="opt">C. By sending only random emails</div>
+      <div class="opt">D. By cutting off internet for vulnerable employees</div>
+    </div>
+    <div class="answer-row"><span class="answer-check">âœ“</span><span class="answer-text">Correct Answer: B</span></div>
+  </div>
+</div>
+
+
+<div class="level-header page-break">
+  <div class="level-badge">L2</div>
+  <div>
+    <h2>Gamification and Simulation Training</h2>
+    <p>PBL Triad, Self-Determination Theory, simulation fidelity, remote security</p>
+  </div>
+</div>
+
+<div class="concepts-section">
+  <div class="section-label">Key Concepts</div>
+  <div class="concepts-grid">
+    <div class="concept-card"><div class="concept-key">Gamification</div><div class="concept-val">Integrating game design elements into non-game contexts to boost participation</div></div>
+    <div class="concept-card"><div class="concept-key">PBL Triad</div><div class="concept-val">Points â€“ Badges â€“ Leaderboards (the three core gamification elements)</div></div>
+    <div class="concept-card"><div class="concept-key">Self-Determination Theory</div><div class="concept-val">Three basic needs: Competence, Autonomy, Connection</div></div>
+    <div class="concept-card"><div class="concept-key">Bartle's Types</div><div class="concept-val">Achievers (goals), Explorers (discovery), Socializers (people), Killers (competition)</div></div>
+    <div class="concept-card"><div class="concept-key">High-Fidelity Simulation</div><div class="concept-val">Most realistic level â€” uses VR/AR technologies</div></div>
+    <div class="concept-card"><div class="concept-key">Phishing Sim Goal</div><div class="concept-val">Identify who clicks links or enters credentials in fake attack scenarios</div></div>
+    <div class="concept-card"><div class="concept-key">Zero Trust Mindset</div><div class="concept-val">First pillar of remote security â€” verify everything, trust nothing by default</div></div>
+    <div class="concept-card"><div class="concept-key">Breach First Step</div><div class="concept-val">Disconnect the device from the internet immediately when a breach is suspected</div></div>
+  </div>
+</div>
+
+<div class="questions-section">
+  <div class="section-label">Practice Questions</div>
+
+  <div class="q-card">
+    <div class="q-num-row"><span class="q-num">Q1</span><span class="q-text">What is meant by Gamification?</span></div>
+    <div class="options">
+      <div class="opt">A. Using games only in training</div>
+      <div class="opt">B. Integrating game design elements into non-game contexts to increase motivation</div>
+      <div class="opt">C. Relying on traditional lectures</div>
+      <div class="opt">D. Using real-life simulations only</div>
+    </div>
+    <div class="answer-row"><span class="answer-check">âœ“</span><span class="answer-text">Correct Answer: B</span></div>
+  </div>
+
+  <div class="q-card">
+    <div class="q-num-row"><span class="q-num">Q2</span><span class="q-text">Which is known as the PBL Triad?</span></div>
+    <div class="options">
+      <div class="opt">A. Competence â€“ Autonomy â€“ Connection</div>
+      <div class="opt">B. Points â€“ Badges â€“ Leaderboards</div>
+      <div class="opt">C. Mechanics â€“ Dynamics â€“ Emotions</div>
+      <div class="opt">D. Achievers â€“ Explorers â€“ Socializers</div>
+    </div>
+    <div class="answer-row"><span class="answer-check">âœ“</span><span class="answer-text">Correct Answer: B</span></div>
+  </div>
+
+  <div class="q-card">
+    <div class="q-num-row"><span class="q-num">Q3</span><span class="q-text">According to Self-Determination Theory, what three needs does gamification support?</span></div>
+    <div class="options">
+      <div class="opt">A. Competence â€“ Autonomy â€“ Connection</div>
+      <div class="opt">B. Mechanics â€“ Dynamics â€“ Emotions</div>
+      <div class="opt">C. Security â€“ Privacy â€“ Awareness</div>
+      <div class="opt">D. Points â€“ Badges â€“ Leaderboards</div>
+    </div>
+    <div class="answer-row"><span class="answer-check">âœ“</span><span class="answer-text">Correct Answer: A</span></div>
+  </div>
+
+  <div class="q-card">
+    <div class="q-num-row"><span class="q-num">Q4</span><span class="q-text">Which player type in Bartle's taxonomy seeks to discover hidden content?</span></div>
+    <div class="options">
+      <div class="opt">A. Achievers</div>
+      <div class="opt">B. Explorers</div>
+      <div class="opt">C. Socializers</div>
+      <div class="opt">D. Killers</div>
+    </div>
+    <div class="answer-row"><span class="answer-check">âœ“</span><span class="answer-text">Correct Answer: B</span></div>
+  </div>
+
+  <div class="q-card">
+    <div class="q-num-row"><span class="q-num">Q5</span><span class="q-text">Which simulation level is most realistic and uses VR/AR?</span></div>
+    <div class="options">
+      <div class="opt">A. Low-Fidelity</div>
+      <div class="opt">B. Mid-Fidelity</div>
+      <div class="opt">C. High-Fidelity</div>
+      <div class="opt">D. Paper-Based</div>
+    </div>
+    <div class="answer-row"><span class="answer-check">âœ“</span><span class="answer-text">Correct Answer: C</span></div>
+  </div>
+
+  <div class="q-card">
+    <div class="q-num-row"><span class="q-num">Q6</span><span class="q-text">What is the main objective of a Phishing Simulation?</span></div>
+    <div class="options">
+      <div class="opt">A. Testing password strength</div>
+      <div class="opt">B. Identifying who will click links or enter their data</div>
+      <div class="opt">C. Training on resource management</div>
+      <div class="opt">D. Enhancing social interaction</div>
+    </div>
+    <div class="answer-row"><span class="answer-check">âœ“</span><span class="answer-text">Correct Answer: B</span></div>
+  </div>
+
+  <div class="q-card">
+    <div class="q-num-row"><span class="q-num">Q7</span><span class="q-text">Which is classified as a technical threat for remote teams?</span></div>
+    <div class="options">
+      <div class="opt">A. Using unsecured Wi-Fi</div>
+      <div class="opt">B. Leaving devices unlocked at home</div>
+      <div class="opt">C. Smishing attacks</div>
+      <div class="opt">D. Weak two-factor authentication</div>
+    </div>
+    <div class="answer-row"><span class="answer-check">âœ“</span><span class="answer-text">Correct Answer: A</span></div>
+  </div>
+
+  <div class="q-card">
+    <div class="q-num-row"><span class="q-num">Q8</span><span class="q-text">What is the first pillar of remote security awareness?</span></div>
+    <div class="options">
+      <div class="opt">A. VPN</div>
+      <div class="opt">B. Zero Trust Mindset</div>
+      <div class="opt">C. Endpoint Security</div>
+      <div class="opt">D. Incident Response</div>
+    </div>
+    <div class="answer-row"><span class="answer-check">âœ“</span><span class="answer-text">Correct Answer: B</span></div>
+  </div>
+
+  <div class="q-card">
+    <div class="q-num-row"><span class="q-num">Q9</span><span class="q-text">What is the FIRST step when suspecting a breach while working remotely?</span></div>
+    <div class="options">
+      <div class="opt">A. Try to fix the problem yourself</div>
+      <div class="opt">B. Immediately contact the security team</div>
+      <div class="opt">C. Disconnect the device from the internet</div>
+      <div class="opt">D. Change the password right away</div>
+    </div>
+    <div class="answer-row"><span class="answer-check">âœ“</span><span class="answer-text">Correct Answer: C</span></div>
+  </div>
+
+  <div class="q-card">
+    <div class="q-num-row"><span class="q-num">Q10</span><span class="q-text">Which behavior is considered safe?</span></div>
+    <div class="options">
+      <div class="opt">A. Using one password for all accounts</div>
+      <div class="opt">B. Sensitive tasks over public Wi-Fi without VPN</div>
+      <div class="opt">C. Enabling automatic OS updates</div>
+      <div class="opt">D. Leaving device unlocked in public</div>
+    </div>
+    <div class="answer-row"><span class="answer-check">âœ“</span><span class="answer-text">Correct Answer: C</span></div>
+  </div>
+</div>
+
+
+<div class="level-header page-break">
+  <div class="level-badge">L3</div>
+  <div>
+    <h2>Measuring Training Effectiveness</h2>
+    <p>Kirkpatrick Model, KPIs, reporting rates, and maturity stages</p>
+  </div>
+</div>
+
+<div class="concepts-section">
+  <div class="section-label">Key Concepts</div>
+  <div class="concepts-grid">
+    <div class="concept-card"><div class="concept-key">Kirkpatrick Model</div><div class="concept-val">4-level framework: Reaction â†’ Learning â†’ Behavior â†’ ROI</div></div>
+    <div class="concept-card"><div class="concept-key">Level 1 â€“ Reaction</div><div class="concept-val">Measures trainee satisfaction and content clarity</div></div>
+    <div class="concept-card"><div class="concept-key">Level 2 â€“ Learning</div><div class="concept-val">Measures knowledge gain using pre-test / post-test</div></div>
+    <div class="concept-card"><div class="concept-key">Level 3 â€“ Behavior</div><div class="concept-val">Measures actual behavior change in the workplace</div></div>
+    <div class="concept-card"><div class="concept-key">Level 4 â€“ ROI</div><div class="concept-val">Measures return on investment and business impact</div></div>
+    <div class="concept-card"><div class="concept-key">Reporting Rate</div><div class="concept-val">Top maturity indicator â€” % who reported a phishing attempt</div></div>
+    <div class="concept-card"><div class="concept-key">Score Improvement</div><div class="concept-val">Difference between pre-test and post-test results</div></div>
+    <div class="concept-card"><div class="concept-key">Gap Analysis</div><div class="concept-val">Identifies vulnerable groups and repeat offenders</div></div>
+  </div>
+</div>
+
+<div class="questions-section">
+  <div class="section-label">Practice Questions</div>
+
+  <div class="q-card">
+    <div class="q-num-row"><span class="q-num">Q1</span><span class="q-text">What is often the weakest link in cybersecurity programs?</span></div>
+    <div class="options">
+      <div class="opt">A. Technical defenses</div>
+      <div class="opt">B. Measuring and evaluating training effectiveness</div>
+      <div class="opt">C. Employee recruitment</div>
+      <div class="opt">D. Firewall configuration</div>
+    </div>
+    <div class="answer-row"><span class="answer-check">âœ“</span><span class="answer-text">Correct Answer: B</span></div>
+  </div>
+
+  <div class="q-card">
+    <div class="q-num-row"><span class="q-num">Q2</span><span class="q-text">Which model is used to academically evaluate training programs?</span></div>
+    <div class="options">
+      <div class="opt">A. SWOT Analysis</div>
+      <div class="opt">B. Kirkpatrick Model</div>
+      <div class="opt">C. Porter's Five Forces</div>
+      <div class="opt">D. Risk Matrix</div>
+    </div>
+    <div class="answer-row"><span class="answer-check">âœ“</span><span class="answer-text">Correct Answer: B</span></div>
+  </div>
+
+  <div class="q-card">
+    <div class="q-num-row"><span class="q-num">Q3</span><span class="q-text">What does Level 1: Reaction measure?</span></div>
+    <div class="options">
+      <div class="opt">A. Employee behavior change</div>
+      <div class="opt">B. Trainee satisfaction and content clarity</div>
+      <div class="opt">C. ROI of training</div>
+      <div class="opt">D. Compliance rates</div>
+    </div>
+    <div class="answer-row"><span class="answer-check">âœ“</span><span class="answer-text">Correct Answer: B</span></div>
+  </div>
+
+  <div class="q-card">
+    <div class="q-num-row"><span class="q-num">Q4</span><span class="q-text">Which tool measures Level 2: Learning?</span></div>
+    <div class="options">
+      <div class="opt">A. Post-training questionnaires</div>
+      <div class="opt">B. Pre-test / Post-test</div>
+      <div class="opt">C. ROI calculations</div>
+      <div class="opt">D. Gap analysis</div>
+    </div>
+    <div class="answer-row"><span class="answer-check">âœ“</span><span class="answer-text">Correct Answer: B</span></div>
+  </div>
+
+  <div class="q-card">
+    <div class="q-num-row"><span class="q-num">Q5</span><span class="q-text">An increase in reporting phishing emails is an indicator of which Kirkpatrick level?</span></div>
+    <div class="options">
+      <div class="opt">A. Reaction</div>
+      <div class="opt">B. Learning</div>
+      <div class="opt">C. Behavior</div>
+      <div class="opt">D. ROI</div>
+    </div>
+    <div class="answer-row"><span class="answer-check">âœ“</span><span class="answer-text">Correct Answer: C</span></div>
+  </div>
+
+  <div class="q-card">
+    <div class="q-num-row"><span class="q-num">Q6</span><span class="q-text">In phishing simulations, which metric is the most important maturity indicator?</span></div>
+    <div class="options">
+      <div class="opt">A. Click Rate</div>
+      <div class="opt">B. Reporting Rate</div>
+      <div class="opt">C. Time to Report</div>
+      <div class="opt">D. Completion Rate</div>
+    </div>
+    <div class="answer-row"><span class="answer-check">âœ“</span><span class="answer-text">Correct Answer: B</span></div>
+  </div>
+
+  <div class="q-card">
+    <div class="q-num-row"><span class="q-num">Q7</span><span class="q-text">What does Score Improvement measure?</span></div>
+    <div class="options">
+      <div class="opt">A. Difference between pre-test and post-test results</div>
+      <div class="opt">B. Number of employees who reported phishing</div>
+      <div class="opt">C. Percentage of outdated devices</div>
+      <div class="opt">D. ROI of training</div>
+    </div>
+    <div class="answer-row"><span class="answer-check">âœ“</span><span class="answer-text">Correct Answer: A</span></div>
+  </div>
+
+  <div class="q-card">
+    <div class="q-num-row"><span class="q-num">Q8</span><span class="q-text">What is the purpose of Gap Analysis in security awareness?</span></div>
+    <div class="options">
+      <div class="opt">A. To calculate ROI</div>
+      <div class="opt">B. To identify vulnerable groups and repeat offenders</div>
+      <div class="opt">C. To measure course completion rates</div>
+      <div class="opt">D. To evaluate trainer performance</div>
+    </div>
+    <div class="answer-row"><span class="answer-check">âœ“</span><span class="answer-text">Correct Answer: B</span></div>
+  </div>
+
+  <div class="q-card">
+    <div class="q-num-row"><span class="q-num">Q9</span><span class="q-text">In the Security Awareness Maturity Model, which stage represents cultural sustainability?</span></div>
+    <div class="options">
+      <div class="opt">A. No program</div>
+      <div class="opt">B. Compliance only</div>
+      <div class="opt">C. Security as part of daily values</div>
+      <div class="opt">D. Advanced metrics</div>
+    </div>
+    <div class="answer-row"><span class="answer-check">âœ“</span><span class="answer-text">Correct Answer: C</span></div>
+  </div>
+
+  <div class="q-card">
+    <div class="q-num-row"><span class="q-num">Q10</span><span class="q-text">Why is ROI important in security awareness training?</span></div>
+    <div class="options">
+      <div class="opt">A. It measures employee satisfaction</div>
+      <div class="opt">B. It convinces senior management to allocate a training budget</div>
+      <div class="opt">C. It identifies repeat offenders</div>
+      <div class="opt">D. It calculates phishing click rates</div>
+    </div>
+    <div class="answer-row"><span class="answer-check">âœ“</span><span class="answer-text">Correct Answer: B</span></div>
+  </div>
+</div>
+
+
+<div class="level-header page-break">
+  <div class="level-badge">L4</div>
+  <div>
+    <h2>Information Risk Management Fundamentals</h2>
+    <p>CIA Triad, risk components, risk types, NIST RMF, ISO 27005</p>
+  </div>
+</div>
+
+<div class="concepts-section">
+  <div class="section-label">Key Concepts</div>
+  <div class="concepts-grid">
+    <div class="concept-card"><div class="concept-key">Information Risk</div><div class="concept-val">The possibility that a threat exploits a vulnerability to cause harm</div></div>
+    <div class="concept-card"><div class="concept-key">CIA Triad</div><div class="concept-val">Confidentiality Â· Integrity Â· Availability â€” the three core security principles</div></div>
+    <div class="concept-card"><div class="concept-key">Confidentiality</div><div class="concept-val">Information is not disclosed to unauthorized parties</div></div>
+    <div class="concept-card"><div class="concept-key">Integrity</div><div class="concept-val">Information is accurate and has not been modified</div></div>
+    <div class="concept-card"><div class="concept-key">Availability</div><div class="concept-val">Information is accessible when needed</div></div>
+    <div class="concept-card"><div class="concept-key">Risk Components</div><div class="concept-val">Asset Â· Threat Â· Vulnerability Â· Control</div></div>
+    <div class="concept-card"><div class="concept-key">RMF</div><div class="concept-val">Risk Management Framework â€” developed by NIST</div></div>
+    <div class="concept-card"><div class="concept-key">ISO/IEC 27005</div><div class="concept-val">International standard for information security risk management</div></div>
+  </div>
+</div>
+
+<div class="questions-section">
+  <div class="section-label">Practice Questions</div>
+
+  <div class="q-card">
+    <div class="q-num-row"><span class="q-num">Q1</span><span class="q-text">What does Information Risk refer to?</span></div>
+    <div class="options">
+      <div class="opt">A. The cost of information systems</div>
+      <div class="opt">B. The possibility that a threat exploits a vulnerability</div>
+      <div class="opt">C. The process of storing information</div>
+      <div class="opt">D. The speed of information processing</div>
+    </div>
+    <div class="answer-row"><span class="answer-check">âœ“</span><span class="answer-text">Correct Answer: B</span></div>
+  </div>
+
+  <div class="q-card">
+    <div class="q-num-row"><span class="q-num">Q2</span><span class="q-text">Which represents the three main principles of information security?</span></div>
+    <div class="options">
+      <div class="opt">A. RAM Model</div>
+      <div class="opt">B. TCP Model</div>
+      <div class="opt">C. CIA Triad</div>
+      <div class="opt">D. ISO Model</div>
+    </div>
+    <div class="answer-row"><span class="answer-check">âœ“</span><span class="answer-text">Correct Answer: C</span></div>
+  </div>
+
+  <div class="q-card">
+    <div class="q-num-row"><span class="q-num">Q3</span><span class="q-text">Which CIA Triad component ensures information is accessible when required?</span></div>
+    <div class="options">
+      <div class="opt">A. Confidentiality</div>
+      <div class="opt">B. Integrity</div>
+      <div class="opt">C. Availability</div>
+      <div class="opt">D. Authentication</div>
+    </div>
+    <div class="answer-row"><span class="answer-check">âœ“</span><span class="answer-text">Correct Answer: C</span></div>
+  </div>
+
+  <div class="q-card">
+    <div class="q-num-row"><span class="q-num">Q4</span><span class="q-text">A weakness in a system that can be exploited by a threat is called:</span></div>
+    <div class="options">
+      <div class="opt">A. Asset</div>
+      <div class="opt">B. Threat</div>
+      <div class="opt">C. Vulnerability</div>
+      <div class="opt">D. Control</div>
+    </div>
+    <div class="answer-row"><span class="answer-check">âœ“</span><span class="answer-text">Correct Answer: C</span></div>
+  </div>
+
+  <div class="q-card">
+    <div class="q-num-row"><span class="q-num">Q5</span><span class="q-text">Which of the following is considered a technical risk?</span></div>
+    <div class="options">
+      <div class="opt">A. Floods</div>
+      <div class="opt">B. Malware attacks</div>
+      <div class="opt">C. Employee mistakes</div>
+      <div class="opt">D. Lack of security policy</div>
+    </div>
+    <div class="answer-row"><span class="answer-check">âœ“</span><span class="answer-text">Correct Answer: B</span></div>
+  </div>
+
+  <div class="q-card">
+    <div class="q-num-row"><span class="q-num">Q6</span><span class="q-text">Sending confidential data to the wrong person is an example of:</span></div>
+    <div class="options">
+      <div class="opt">A. Technical risk</div>
+      <div class="opt">B. Environmental risk</div>
+      <div class="opt">C. Human risk</div>
+      <div class="opt">D. Organizational risk</div>
+    </div>
+    <div class="answer-row"><span class="answer-check">âœ“</span><span class="answer-text">Correct Answer: C</span></div>
+  </div>
+
+  <div class="q-card">
+    <div class="q-num-row"><span class="q-num">Q7</span><span class="q-text">Which step involves identifying valuable organizational resources?</span></div>
+    <div class="options">
+      <div class="opt">A. Threat identification</div>
+      <div class="opt">B. Asset identification</div>
+      <div class="opt">C. Risk evaluation</div>
+      <div class="opt">D. Risk treatment</div>
+    </div>
+    <div class="answer-row"><span class="answer-check">âœ“</span><span class="answer-text">Correct Answer: B</span></div>
+  </div>
+
+  <div class="q-card">
+    <div class="q-num-row"><span class="q-num">Q8</span><span class="q-text">Risk is usually evaluated based on:</span></div>
+    <div class="options">
+      <div class="opt">A. Cost and time</div>
+      <div class="opt">B. Likelihood and impact</div>
+      <div class="opt">C. Hardware and software</div>
+      <div class="opt">D. Speed and performance</div>
+    </div>
+    <div class="answer-row"><span class="answer-check">âœ“</span><span class="answer-text">Correct Answer: B</span></div>
+  </div>
+
+  <div class="q-card">
+    <div class="q-num-row"><span class="q-num">Q9</span><span class="q-text">The Risk Management Framework (RMF) was developed by:</span></div>
+    <div class="options">
+      <div class="opt">A. Microsoft</div>
+      <div class="opt">B. IEEE</div>
+      <div class="opt">C. National Institute of Standards and Technology (NIST)</div>
+      <div class="opt">D. Cisco</div>
+    </div>
+    <div class="answer-row"><span class="answer-check">âœ“</span><span class="answer-text">Correct Answer: C</span></div>
+  </div>
+
+  <div class="q-card">
+    <div class="q-num-row"><span class="q-num">Q10</span><span class="q-text">ISO/IEC 27005 provides guidelines for:</span></div>
+    <div class="options">
+      <div class="opt">A. Database management</div>
+      <div class="opt">B. Network design</div>
+      <div class="opt">C. Information security risk management</div>
+      <div class="opt">D. Software development</div>
+    </div>
+    <div class="answer-row"><span class="answer-check">âœ“</span><span class="answer-text">Correct Answer: C</span></div>
+  </div>
+</div>
+
+
+<div class="level-header page-break">
+  <div class="level-badge">L5</div>
+  <div>
+    <h2>Risk Assessment and Analysis</h2>
+    <p>Qualitative vs. quantitative, ALE formula, risk matrix, treatment strategies, control types</p>
+  </div>
+</div>
+
+<div class="concepts-section">
+  <div class="section-label">Key Concepts</div>
+  <div class="concepts-grid">
+    <div class="concept-card"><div class="concept-key">Qualitative Analysis</div><div class="concept-val">Expert judgment; descriptive terms (High/Medium/Low); limitation = subjectivity</div></div>
+    <div class="concept-card"><div class="concept-key">Quantitative Analysis</div><div class="concept-val">Math-based; ALE = SLE Ã— ARO</div></div>
+    <div class="concept-card"><div class="concept-key">ALE</div><div class="concept-val">Annual Loss Expectancy â€” total expected loss per year</div></div>
+    <div class="concept-card"><div class="concept-key">SLE / ARO</div><div class="concept-val">SLE = Single Loss Expectancy Â· ARO = Annual Rate of Occurrence</div></div>
+    <div class="concept-card"><div class="concept-key">Risk Matrix</div><div class="concept-val">Combines Likelihood + Impact â†’ High + High = Critical Risk</div></div>
+    <div class="concept-card"><div class="concept-key">Risk Strategies</div><div class="concept-val">Mitigation Â· Transfer (insurance) Â· Avoidance Â· Acceptance</div></div>
+    <div class="concept-card"><div class="concept-key">Preventive Controls</div><div class="concept-val">Stop incidents before they occur</div></div>
+    <div class="concept-card"><div class="concept-key">Detective Controls</div><div class="concept-val">Identify incidents as they happen (e.g., IDS)</div></div>
+  </div>
+</div>
+
+<div class="questions-section">
+  <div class="section-label">Practice Questions</div>
+
+  <div class="q-card">
+    <div class="q-num-row"><span class="q-num">Q1</span><span class="q-text">What is the primary goal of Information Risk Assessment?</span></div>
+    <div class="options">
+      <div class="opt">A. Eliminating all risks completely</div>
+      <div class="opt">B. Identifying and prioritizing risks</div>
+      <div class="opt">C. Increasing system complexity</div>
+      <div class="opt">D. Reducing system performance</div>
+    </div>
+    <div class="answer-row"><span class="answer-check">âœ“</span><span class="answer-text">Correct Answer: B</span></div>
+  </div>
+
+  <div class="q-card">
+    <div class="q-num-row"><span class="q-num">Q2</span><span class="q-text">Qualitative Risk Analysis is mainly based on:</span></div>
+    <div class="options">
+      <div class="opt">A. Mathematical formulas</div>
+      <div class="opt">B. Statistical data only</div>
+      <div class="opt">C. Expert judgment and descriptive evaluation</div>
+      <div class="opt">D. Automated tools only</div>
+    </div>
+    <div class="answer-row"><span class="answer-check">âœ“</span><span class="answer-text">Correct Answer: C</span></div>
+  </div>
+
+  <div class="q-card">
+    <div class="q-num-row"><span class="q-num">Q3</span><span class="q-text">Which is a limitation of Qualitative Risk Analysis?</span></div>
+    <div class="options">
+      <div class="opt">A. Requires complex calculations</div>
+      <div class="opt">B. Time-consuming</div>
+      <div class="opt">C. Subjectivity</div>
+      <div class="opt">D. Requires high cost</div>
+    </div>
+    <div class="answer-row"><span class="answer-check">âœ“</span><span class="answer-text">Correct Answer: C</span></div>
+  </div>
+
+  <div class="q-card">
+    <div class="q-num-row"><span class="q-num">Q4</span><span class="q-text">In Quantitative Risk Analysis, ALE stands for:</span></div>
+    <div class="options">
+      <div class="opt">A. Annual Loss Estimation</div>
+      <div class="opt">B. Average Loss Evaluation</div>
+      <div class="opt">C. Annual Loss Expectancy</div>
+      <div class="opt">D. Actual Loss Equation</div>
+    </div>
+    <div class="answer-row"><span class="answer-check">âœ“</span><span class="answer-text">Correct Answer: C</span></div>
+  </div>
+
+  <div class="q-card">
+    <div class="q-num-row"><span class="q-num">Q5</span><span class="q-text">Which formula is used to calculate ALE?</span></div>
+    <div class="options">
+      <div class="opt">A. ALE = Impact Ã— Risk</div>
+      <div class="opt">B. ALE = SLE Ã— ARO</div>
+      <div class="opt">C. ALE = Threat Ã— Vulnerability</div>
+      <div class="opt">D. ALE = Asset Ã— Loss</div>
+    </div>
+    <div class="answer-row"><span class="answer-check">âœ“</span><span class="answer-text">Correct Answer: B</span></div>
+  </div>
+
+  <div class="q-card">
+    <div class="q-num-row"><span class="q-num">Q6</span><span class="q-text">What does "High Likelihood + High Impact" represent in a Risk Matrix?</span></div>
+    <div class="options">
+      <div class="opt">A. Low Risk</div>
+      <div class="opt">B. Medium Risk</div>
+      <div class="opt">C. High Risk</div>
+      <div class="opt">D. Critical Risk</div>
+    </div>
+    <div class="answer-row"><span class="answer-check">âœ“</span><span class="answer-text">Correct Answer: D</span></div>
+  </div>
+
+  <div class="q-card">
+    <div class="q-num-row"><span class="q-num">Q7</span><span class="q-text">Which risk treatment strategy eliminates the source of risk?</span></div>
+    <div class="options">
+      <div class="opt">A. Mitigation</div>
+      <div class="opt">B. Transfer</div>
+      <div class="opt">C. Avoidance</div>
+      <div class="opt">D. Acceptance</div>
+    </div>
+    <div class="answer-row"><span class="answer-check">âœ“</span><span class="answer-text">Correct Answer: C</span></div>
+  </div>
+
+  <div class="q-card">
+    <div class="q-num-row"><span class="q-num">Q8</span><span class="q-text">Which is an example of Risk Transfer?</span></div>
+    <div class="options">
+      <div class="opt">A. Installing antivirus software</div>
+      <div class="opt">B. Using encryption</div>
+      <div class="opt">C. Purchasing cyber insurance</div>
+      <div class="opt">D. Ignoring the risk</div>
+    </div>
+    <div class="answer-row"><span class="answer-check">âœ“</span><span class="answer-text">Correct Answer: C</span></div>
+  </div>
+
+  <div class="q-card">
+    <div class="q-num-row"><span class="q-num">Q9</span><span class="q-text">Intrusion Detection Systems (IDS) are classified as:</span></div>
+    <div class="options">
+      <div class="opt">A. Preventive controls</div>
+      <div class="opt">B. Detective controls</div>
+      <div class="opt">C. Corrective controls</div>
+      <div class="opt">D. Administrative controls</div>
+    </div>
+    <div class="answer-row"><span class="answer-check">âœ“</span><span class="answer-text">Correct Answer: B</span></div>
+  </div>
+
+  <div class="q-card">
+    <div class="q-num-row"><span class="q-num">Q10</span><span class="q-text">Why is Continuous Monitoring important in risk management?</span></div>
+    <div class="options">
+      <div class="opt">A. To eliminate all vulnerabilities</div>
+      <div class="opt">B. To stop system operations</div>
+      <div class="opt">C. To track changes and update risk controls</div>
+      <div class="opt">D. To increase risk levels</div>
+    </div>
+    <div class="answer-row"><span class="answer-check">âœ“</span><span class="answer-text">Correct Answer: C</span></div>
+  </div>
+</div>
+
+
+<div class="level-header page-break">
+  <div class="level-badge">L6</div>
+  <div>
+    <h2>Advanced Risk Management & Cyber Resilience</h2>
+    <p>Strategic governance, Cyber Resilience, Attack Graphs, Bayesian Networks, Risk Maturity</p>
+  </div>
+</div>
+
+<div class="concepts-section">
+  <div class="section-label">Key Concepts</div>
+  <div class="concepts-grid">
+    <div class="concept-card"><div class="concept-key">Strategic Governance</div><div class="concept-val">Information Risk Management is integrated into modern digital ecosystems.</div></div>
+    <div class="concept-card"><div class="concept-key">Risk Flow Model</div><div class="concept-val">Threat &rarr; Vulnerability &rarr; Exploit &rarr; Impact &rarr; Response</div></div>
+    <div class="concept-card"><div class="concept-key">Cyber Resilience</div><div class="concept-val">Continuing operations despite attacks (unlike Security which prevents attacks).</div></div>
+    <div class="concept-card"><div class="concept-key">Attack Graphs</div><div class="concept-val">Used to represent attack paths and identify possible intrusion routes.</div></div>
+    <div class="concept-card"><div class="concept-key">Bayesian Networks</div><div class="concept-val">Applied in probabilistic reasoning and dynamic risk updates.</div></div>
+    <div class="concept-card"><div class="concept-key">Risk Maturity</div><div class="concept-val">Levels such as: Initial, Managed, Defined, Quantitatively Managed, Optimized.</div></div>
+    <div class="concept-card"><div class="concept-key">Complex Environments</div><div class="concept-val">Characterized by high interdependencies and uncertainty.</div></div>
+    <div class="concept-card"><div class="concept-key">Advanced Case Study</div><div class="concept-val">Combining Attack Graphs and Bayesian Networks to map paths and reduce risk.</div></div>
+  </div>
+</div>
+
+<div class="questions-section">
+  <div class="section-label">Practice Questions</div>
+
+  <div class="q-card">
+    <div class="q-num-row"><span class="q-num">Q1</span><span class="q-text">In modern digital ecosystems, Information Risk Management is considered part of:</span></div>
+    <div class="options">
+      <div class="opt">A. Cybersecurity only</div>
+      <div class="opt">B. Integrated strategic governance</div>
+      <div class="opt">C. Legal compliance only</div>
+      <div class="opt">D. Data backup</div>
+    </div>
+    <div class="answer-row"><span class="answer-check">âœ“</span><span class="answer-text">Correct Answer: B</span></div>
+  </div>
+
+  <div class="q-card">
+    <div class="q-num-row"><span class="q-num">Q2</span><span class="q-text">The components of Information Risk Architecture include:</span></div>
+    <div class="options">
+      <div class="opt">A. Assets, threats, controls, and response mechanisms</div>
+      <div class="opt">B. Data only</div>
+      <div class="opt">C. Internal threats only</div>
+      <div class="opt">D. Backup only</div>
+    </div>
+    <div class="answer-row"><span class="answer-check">âœ“</span><span class="answer-text">Correct Answer: A</span></div>
+  </div>
+
+  <div class="q-card">
+    <div class="q-num-row"><span class="q-num">Q3</span><span class="q-text">The Risk Flow Model follows the sequence:</span></div>
+    <div class="options">
+      <div class="opt">A. Threat &rarr; Response &rarr; Impact &rarr; Vulnerability</div>
+      <div class="opt">B. Vulnerability &rarr; Threat &rarr; Impact &rarr; Response</div>
+      <div class="opt">C. Threat &rarr; Vulnerability &rarr; Exploit &rarr; Impact &rarr; Response</div>
+      <div class="opt">D. Impact &rarr; Exploit &rarr; Threat &rarr; Response</div>
+    </div>
+    <div class="answer-row"><span class="answer-check">âœ“</span><span class="answer-text">Correct Answer: C</span></div>
+  </div>
+
+  <div class="q-card">
+    <div class="q-num-row"><span class="q-num">Q4</span><span class="q-text">The difference between Security and Cyber Resilience is:</span></div>
+    <div class="options">
+      <div class="opt">A. Security focuses on preventing attacks, resilience focuses on continuing operations despite attacks</div>
+      <div class="opt">B. Security focuses on backup, resilience focuses on compliance</div>
+      <div class="opt">C. Security is short-term, resilience is long-term</div>
+      <div class="opt">D. Security depends on humans, resilience depends on technology</div>
+    </div>
+    <div class="answer-row"><span class="answer-check">âœ“</span><span class="answer-text">Correct Answer: A</span></div>
+  </div>
+
+  <div class="q-card">
+    <div class="q-num-row"><span class="q-num">Q5</span><span class="q-text">Strategies for building cyber resilience include:</span></div>
+    <div class="options">
+      <div class="opt">A. Encryption only</div>
+      <div class="opt">B. Segmentation, redundancy, and automated incident response</div>
+      <div class="opt">C. Regulatory compliance only</div>
+      <div class="opt">D. Reducing the number of systems</div>
+    </div>
+    <div class="answer-row"><span class="answer-check">âœ“</span><span class="answer-text">Correct Answer: B</span></div>
+  </div>
+
+  <div class="q-card">
+    <div class="q-num-row"><span class="q-num">Q6</span><span class="q-text">Attack Graphs are used to:</span></div>
+    <div class="options">
+      <div class="opt">A. Represent attack paths and identify possible intrusion routes</div>
+      <div class="opt">B. Analyze legal compliance</div>
+      <div class="opt">C. Manage identity and access</div>
+      <div class="opt">D. Perform cloud backup</div>
+    </div>
+    <div class="answer-row"><span class="answer-check">âœ“</span><span class="answer-text">Correct Answer: A</span></div>
+  </div>
+
+  <div class="q-card">
+    <div class="q-num-row"><span class="q-num">Q7</span><span class="q-text">Bayesian Networks are applied in:</span></div>
+    <div class="options">
+      <div class="opt">A. Encryption</div>
+      <div class="opt">B. Probabilistic reasoning and dynamic risk updates</div>
+      <div class="opt">C. Backup systems</div>
+      <div class="opt">D. Regulatory compliance</div>
+    </div>
+    <div class="answer-row"><span class="answer-check">âœ“</span><span class="answer-text">Correct Answer: B</span></div>
+  </div>
+
+  <div class="q-card">
+    <div class="q-num-row"><span class="q-num">Q8</span><span class="q-text">Risk Maturity Assessment models include levels such as:</span></div>
+    <div class="options">
+      <div class="opt">A. Initial, Managed, Defined, Quantitatively Managed, Optimized</div>
+      <div class="opt">B. Low, Medium, High, Critical</div>
+      <div class="opt">C. Security, Legal, Operational, Financial</div>
+      <div class="opt">D. Internal, External, Human, Technical</div>
+    </div>
+    <div class="answer-row"><span class="answer-check">âœ“</span><span class="answer-text">Correct Answer: A</span></div>
+  </div>
+
+  <div class="q-card">
+    <div class="q-num-row"><span class="q-num">Q9</span><span class="q-text">Complex risk environments are characterized by:</span></div>
+    <div class="options">
+      <div class="opt">A. Linear and simple behavior</div>
+      <div class="opt">B. High interdependencies and uncertainty</div>
+      <div class="opt">C. Complete clarity of threats</div>
+      <div class="opt">D. Absence of human error</div>
+    </div>
+    <div class="answer-row"><span class="answer-check">âœ“</span><span class="answer-text">Correct Answer: B</span></div>
+  </div>
+
+  <div class="q-card">
+    <div class="q-num-row"><span class="q-num">Q10</span><span class="q-text">In an advanced case study (APT against a government organization), analysts use:</span></div>
+    <div class="options">
+      <div class="opt">A. Attack Graphs to map intrusion paths</div>
+      <div class="opt">B. Bayesian Networks for probabilistic updates</div>
+      <div class="opt">C. Both together to identify critical vulnerabilities and reduce risk</div>
+      <div class="opt">D. Regulatory compliance only</div>
+    </div>
+    <div class="answer-row"><span class="answer-check">âœ“</span><span class="answer-text">Correct Answer: C</span></div>
+  </div>
+</div>
+
+</div>
+<script>
+(() => {
+  "use strict";
+
+  const questionCards = Array.from(document.querySelectorAll(".questions-section .q-card"));
+  if (!questionCards.length) return;
+
+  const normalizeText = (value) => (value || "").replace(/\s+/g, " ").trim();
+
+  const getLevelInfo = (card) => {
+    let node = card.parentElement;
+    while (node) {
+      let sibling = node.previousElementSibling;
+      while (sibling) {
+        if (sibling.classList && sibling.classList.contains("level-header")) {
+          return {
+            badge: normalizeText(sibling.querySelector(".level-badge")?.textContent) || "Level",
+            title: normalizeText(sibling.querySelector("h2")?.textContent) || "Security Awareness"
+          };
+        }
+        sibling = sibling.previousElementSibling;
+      }
+      node = node.parentElement;
+    }
+    return { badge: "Level", title: "Security Awareness" };
+  };
+
+  const parseOption = (raw, index) => {
+    const clean = normalizeText(raw);
+    const match = clean.match(/^([A-Z])\.\s*(.*)$/i);
+    if (match) {
+      return { id: match[1].toUpperCase(), text: normalizeText(match[2]) };
+    }
+    return { id: String.fromCharCode(65 + index), text: clean };
+  };
+
+  const bank = questionCards
+    .map((card, index) => {
+      const question = normalizeText(card.querySelector(".q-text")?.textContent);
+      const options = Array.from(card.querySelectorAll(".opt")).map((opt, idx) => parseOption(opt.textContent, idx));
+      const answerText = normalizeText(card.querySelector(".answer-text")?.textContent);
+      const answerMatch = answerText.match(/([A-Z])\s*$/i);
+      const correct = answerMatch ? answerMatch[1].toUpperCase() : null;
+      const level = getLevelInfo(card);
+
+      return {
+        id: index + 1,
+        levelBadge: level.badge,
+        levelTitle: level.title,
+        question,
+        options,
+        correct
+      };
+    })
+    .filter((q) => q.question && q.options.length >= 2 && q.correct);
+
+  if (!bank.length) return;
+
+  const quizRoot = document.createElement("section");
+  quizRoot.id = "quiz-app";
+  document.body.insertBefore(quizRoot, document.body.firstChild);
+  document.body.classList.add("quiz-ready");
+  const THEME_STORAGE_KEY = "security_awareness_quiz_theme";
+  const DEFAULT_EXAM_COUNT = Math.min(10, bank.length);
+  const AUTO_NEXT_DELAY_MS = 350;
+  const prefersDarkQuery = window.matchMedia ? window.matchMedia("(prefers-color-scheme: dark)") : null;
+  const prefersReducedMotionQuery = window.matchMedia ? window.matchMedia("(prefers-reduced-motion: reduce)") : null;
+  let hasManualTheme = false;
+
+  const shuffle = (arr) => {
+    const copy = [...arr];
+    for (let i = copy.length - 1; i > 0; i -= 1) {
+      const j = Math.floor(Math.random() * (i + 1));
+      [copy[i], copy[j]] = [copy[j], copy[i]];
+    }
+    return copy;
+  };
+
+  const cloneQuestion = (q) => ({
+    ...q,
+    options: shuffle(q.options.map((opt) => ({ ...opt })))
+  });
+
+  const state = {
+    mode: "intro",
+    questions: [],
+    current: 0,
+    score: 0,
+    selected: null,
+    answered: false,
+    theme: "light",
+    examCount: DEFAULT_EXAM_COUNT,
+    autoAdvanceTimer: null,
+    resultRainArmed: false,
+    rainCleanupTimer: null
+  };
+
+  const clearAutoAdvanceTimer = () => {
+    if (state.autoAdvanceTimer !== null) {
+      clearTimeout(state.autoAdvanceTimer);
+      state.autoAdvanceTimer = null;
+    }
+  };
+
+  const clearResultRain = () => {
+    if (state.rainCleanupTimer !== null) {
+      clearTimeout(state.rainCleanupTimer);
+      state.rainCleanupTimer = null;
+    }
+    const activeLayer = document.querySelector(".bulletin-rain-layer");
+    if (activeLayer) activeLayer.remove();
+  };
+
+  const launchResultRain = (performanceBulletin) => {
+    if (prefersReducedMotionQuery && prefersReducedMotionQuery.matches) return;
+    clearResultRain();
+
+    const layer = document.createElement("div");
+    layer.className = "bulletin-rain-layer";
+    document.body.appendChild(layer);
+
+    const isNarrow = window.innerWidth < 760;
+    const dropCount = isNarrow ? 36 : 64;
+    const labels = [
+      { cls: "completion", text: "🏁 Completion Bulletin" },
+      { cls: performanceBulletin.cls, text: `${performanceBulletin.icon} ${performanceBulletin.title}` },
+      { cls: performanceBulletin.cls, text: "🎉 Quiz Completed" },
+      { cls: "completion", text: "✨ Achievement" },
+      { cls: "completion", text: "📣 Great Finish" }
+    ];
+
+    for (let i = 0; i < dropCount; i += 1) {
+      const pick = labels[Math.floor(Math.random() * labels.length)];
+      const drop = document.createElement("div");
+      const delay = Math.floor(Math.random() * 900);
+      const duration = 1900 + Math.floor(Math.random() * 1200);
+      const drift = `${Math.floor(Math.random() * 180) - 90}px`;
+      const left = `${Math.random() * 100}%`;
+
+      drop.className = `bulletin-drop ${pick.cls}`;
+      drop.textContent = pick.text;
+      drop.style.left = left;
+      drop.style.animationDelay = `${delay}ms`;
+      drop.style.animationDuration = `${duration}ms`;
+      drop.style.setProperty("--rain-drift", drift);
+      layer.appendChild(drop);
+    }
+
+    state.rainCleanupTimer = window.setTimeout(() => {
+      layer.remove();
+      state.rainCleanupTimer = null;
+    }, 4600);
+  };
+
+  const clampExamCount = (value) => {
+    const parsed = Number.parseInt(value, 10);
+    if (!Number.isFinite(parsed)) return state.examCount;
+    return Math.max(1, Math.min(bank.length, parsed));
+  };
+
+  const getStoredTheme = () => {
+    try {
+      const value = localStorage.getItem(THEME_STORAGE_KEY);
+      return value === "dark" || value === "light" ? value : null;
+    } catch {
+      return null;
+    }
+  };
+
+  const applyTheme = (theme, persist = false) => {
+    const nextTheme = theme === "dark" ? "dark" : "light";
+    state.theme = nextTheme;
+    document.documentElement.setAttribute("data-theme", nextTheme);
+    if (persist) {
+      try {
+        localStorage.setItem(THEME_STORAGE_KEY, nextTheme);
+      } catch {
+        
+      }
+    }
+  };
+
+  const initTheme = () => {
+    const savedTheme = getStoredTheme();
+    if (savedTheme) {
+      hasManualTheme = true;
+      applyTheme(savedTheme, false);
+      return;
+    }
+    const systemTheme = prefersDarkQuery && prefersDarkQuery.matches ? "dark" : "light";
+    applyTheme(systemTheme, false);
+  };
+
+  const toggleTheme = () => {
+    hasManualTheme = true;
+    const next = state.theme === "dark" ? "light" : "dark";
+    applyTheme(next, true);
+    render();
+  };
+
+  const renderThemeToggle = () => `
+    <button
+      type="button"
+      class="quiz-btn theme-toggle"
+      data-action="toggle-theme"
+      aria-label="${state.theme === "dark" ? "Switch to light mode" : "Switch to dark mode"}"
+      title="${state.theme === "dark" ? "Switch to light mode" : "Switch to dark mode"}"
+    >
+      ${state.theme === "dark" ? "Light Mode" : "Dark Mode"}
+    </button>
+  `;
+
+  const startQuiz = () => {
+    clearAutoAdvanceTimer();
+    clearResultRain();
+    state.examCount = clampExamCount(state.examCount);
+    state.mode = "quiz";
+    state.questions = shuffle(bank).slice(0, state.examCount).map(cloneQuestion);
+    state.current = 0;
+    state.score = 0;
+    state.selected = null;
+    state.answered = false;
+    state.resultRainArmed = false;
+    render();
+  };
+
+  const restartQuiz = () => startQuiz();
+
+  const answerQuestion = (choiceId) => {
+    if (state.mode !== "quiz" || state.answered) return;
+    clearAutoAdvanceTimer();
+    const q = state.questions[state.current];
+    const answeredIndex = state.current;
+    state.selected = choiceId;
+    state.answered = true;
+    if (choiceId === q.correct) state.score += 1;
+    render();
+    state.autoAdvanceTimer = window.setTimeout(() => {
+      if (state.mode !== "quiz" || !state.answered || state.current !== answeredIndex) return;
+      nextQuestion();
+    }, AUTO_NEXT_DELAY_MS);
+  };
+
+  const nextQuestion = () => {
+    if (state.mode !== "quiz" || !state.answered) return;
+    clearAutoAdvanceTimer();
+    if (state.current >= state.questions.length - 1) {
+      state.mode = "result";
+      state.resultRainArmed = true;
+      render();
+      return;
+    }
+    state.current += 1;
+    state.selected = null;
+    state.answered = false;
+    render();
+  };
+
+  const renderIntro = () => {
+    quizRoot.innerHTML = `
+      <div class="quiz-shell">
+        <div class="quiz-head">
+          <div class="quiz-head-top">
+            <span class="quiz-kicker">Interactive Mode</span>
+            ${renderThemeToggle()}
+          </div>
+          <h1 class="quiz-title">Security Awareness Interactive Quiz</h1>
+          <p class="quiz-desc">Upgraded layout, better interactions, and automatic random question order in every run.</p>
+        </div>
+        <div class="quiz-body">
+          <div class="stats-grid">
+            <div class="stat-box"><span class="stat-label">Questions</span><span class="stat-value">${bank.length}</span></div>
+            <div class="stat-box"><span class="stat-label">Mode</span><span class="stat-value">Interactive Training</span></div>
+            <div class="stat-box"><span class="stat-label">Order</span><span class="stat-value">Auto Randomized</span></div>
+          </div>
+          <div class="quiz-config">
+            <label for="exam-count">How many questions in this exam?</label>
+            <input id="exam-count" data-action="exam-count" type="number" min="1" max="${bank.length}" step="1" value="${state.examCount}">
+            <small>Choose from 1 to ${bank.length}. You will get random questions each time.</small>
+          </div>
+          <div class="quiz-actions">
+            <button class="quiz-btn primary" data-action="start">Start Quiz</button>
+          </div>
+        </div>
+      </div>
+    `;
+
+  };
+
+  const renderQuiz = () => {
+    const q = state.questions[state.current];
+    const answeredCount = state.current + (state.answered ? 1 : 0);
+    const progress = Math.round((answeredCount / state.questions.length) * 100);
+    const isLast = state.current === state.questions.length - 1;
+    const currentNumber = state.current + 1;
+
+    const optionsHtml = q.options
+      .map((opt) => {
+        let cls = "choice-btn";
+        if (state.answered) {
+          if (opt.id === q.correct) cls += " correct";
+          else if (opt.id === state.selected) cls += " wrong";
+        }
+        return `
+          <button class="${cls}" data-choice="${opt.id}" ${state.answered ? "disabled" : ""}>
+            ${opt.text}
+          </button>
+        `;
+      })
+      .join("");
+
+    const feedbackHtml = !state.answered
+      ? ""
+      : state.selected === q.correct
+        ? `<div class="feedback ok">Correct answer. Great job.</div>`
+        : `<div class="feedback no">Incorrect answer. Correct one: <strong>${q.options.find((o) => o.id === q.correct)?.text || q.correct}</strong></div>`;
+
+    quizRoot.innerHTML = `
+      <div class="quiz-shell">
+        <div class="quiz-head">
+          <div class="quiz-head-top">
+            <span class="quiz-kicker">Randomized Questions</span>
+            ${renderThemeToggle()}
+          </div>
+          <h1 class="quiz-title">Upgraded Interactive Quiz</h1>
+          <p class="quiz-desc">You get a fresh randomized sequence every time you restart.</p>
+        </div>
+        <div class="quiz-body">
+          <div class="stats-grid">
+            <div class="stat-box"><span class="stat-label">Question</span><span class="stat-value">${currentNumber} / ${state.questions.length}</span></div>
+            <div class="stat-box"><span class="stat-label">Current Score</span><span class="stat-value">${state.score}</span></div>
+            <div class="stat-box"><span class="stat-label">Level</span><span class="stat-value">${q.levelBadge}</span></div>
+          </div>
+          <div class="progress-wrap"><div class="progress-bar" style="width:${progress}%"></div></div>
+          <div class="question-card">
+            <div class="question-meta">
+              <span class="meta-chip">${q.levelTitle}</span>
+              <span class="meta-chip">Q${currentNumber}</span>
+            </div>
+            <div class="question-text">${q.question}</div>
+            <div class="choice-list">${optionsHtml}</div>
+            ${feedbackHtml}
+            <div class="quiz-actions">
+              <button class="quiz-btn ghost" data-action="restart">Restart With New Shuffle</button>
+              ${state.answered ? `<div class="auto-next-note">${isLast ? "Moving to final result..." : "Moving to next question..."}</div>` : ""}
+            </div>
+          </div>
+        </div>
+      </div>
+    `;
+
+  };
+
+  const renderResult = () => {
+    const total = state.questions.length;
+    const percent = Math.round((state.score / total) * 100);
+    const message =
+      percent >= 85 ? "Outstanding performance." :
+      percent >= 70 ? "Very good result with room for improvement." :
+      percent >= 50 ? "Fair result. Review key concepts and retry." :
+      "Retry after a quick concept review.";
+    const performanceBulletin =
+      percent >= 85 ? { cls: "win", icon: "🏆", title: "Win Bulletin", text: "Outstanding performance in this quiz." } :
+      percent >= 70 ? { cls: "good", icon: "✅", title: "Great Bulletin", text: "Strong score with small room to improve." } :
+      percent >= 50 ? { cls: "review", icon: "📘", title: "Review Bulletin", text: "Fair result. A short review will boost your score." } :
+      { cls: "retry", icon: "🔁", title: "Retry Bulletin", text: "Try again after a quick review." };
+
+    quizRoot.innerHTML = `
+      <div class="quiz-shell">
+        <div class="quiz-head">
+          <div class="quiz-head-top">
+            <span class="quiz-kicker">Final Result</span>
+            ${renderThemeToggle()}
+          </div>
+          <h1 class="quiz-title">Quiz Completed</h1>
+          <p class="quiz-desc">Run it again to get a new random order.</p>
+        </div>
+        <div class="quiz-body result-pane">
+          <div class="result-score">${state.score} / ${total}</div>
+          <p class="result-sub">Score: <strong>${percent}%</strong><br>${message}</p>
+          <div class="result-bulletins">
+            <div class="result-bulletin completion">
+              <div class="result-bulletin-title"><span class="result-bulletin-icon">🏁</span>Completion Bulletin</div>
+              <span>All quiz questions were completed successfully.</span>
+            </div>
+            <div class="result-bulletin ${performanceBulletin.cls}">
+              <div class="result-bulletin-title"><span class="result-bulletin-icon">${performanceBulletin.icon}</span>${performanceBulletin.title}</div>
+              <span>${performanceBulletin.text}</span>
+            </div>
+          </div>
+          <div class="quiz-actions" style="justify-content:center;">
+            <button class="quiz-btn primary" data-action="restart">Retry With New Random Order</button>
+          </div>
+        </div>
+      </div>
+    `;
+
+    if (state.resultRainArmed) {
+      launchResultRain(performanceBulletin);
+      state.resultRainArmed = false;
+    }
+  };
+
+  const render = () => {
+    if (state.mode === "intro") {
+      renderIntro();
+      return;
+    }
+    if (state.mode === "quiz") {
+      renderQuiz();
+      return;
+    }
+    renderResult();
+  };
+
+  quizRoot.addEventListener("click", (event) => {
+    const target = event.target.closest("button");
+    if (!target) return;
+
+    const action = target.getAttribute("data-action");
+    const choice = target.getAttribute("data-choice");
+
+    if (action === "toggle-theme") {
+      toggleTheme();
+      return;
+    }
+
+    if (action === "start") {
+      const countInput = quizRoot.querySelector('input[data-action="exam-count"]');
+      if (countInput) state.examCount = clampExamCount(countInput.value);
+      startQuiz();
+      return;
+    }
+    if (action === "restart") {
+      restartQuiz();
+      return;
+    }
+    if (action === "next") {
+      nextQuestion();
+      return;
+    }
+    if (choice) {
+      answerQuestion(choice);
+    }
+  });
+
+  quizRoot.addEventListener("input", (event) => {
+    const target = event.target;
+    if (!(target instanceof HTMLInputElement)) return;
+    if (target.getAttribute("data-action") !== "exam-count") return;
+    const nextCount = clampExamCount(target.value);
+    state.examCount = nextCount;
+    if (String(nextCount) !== target.value) {
+      target.value = String(nextCount);
+    }
+  });
+
+  if (prefersDarkQuery) {
+    const onSystemThemeChange = (event) => {
+      if (hasManualTheme) return;
+      applyTheme(event.matches ? "dark" : "light", false);
+      render();
+    };
+    if (typeof prefersDarkQuery.addEventListener === "function") {
+      prefersDarkQuery.addEventListener("change", onSystemThemeChange);
+    } else if (typeof prefersDarkQuery.addListener === "function") {
+      prefersDarkQuery.addListener(onSystemThemeChange);
+    }
+  }
+
+  initTheme();
+  render();
+})();
+</script>
+</body>
+</html>
