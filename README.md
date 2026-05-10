@@ -235,8 +235,8 @@ If you found this project helpful, please consider:
 
 <div align="center">
 
-### Made with ❤️ for Cybersecurity Education
-
-*Last Updated: 2026-05-08*
 
 </div>
+# END
+
+<img src="https://th.bing.com/th/id/R.ba83d4b3fd2099e44fe580d519e08037?rik=NJoyNWb%2boU7wXQ&pid=ImgRaw&r=0" width="350">
