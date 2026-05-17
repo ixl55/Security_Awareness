@@ -351,6 +351,8 @@
     border: 1px solid var(--quiz-chip-border);
     padding: 6px 10px;
     border-radius: 999px;
+    white-space: nowrap;
+    flex-shrink: 0;
   }
 
   .question-text {
@@ -465,6 +467,128 @@
     margin-top: 8px;
     font-size: 12px;
     color: var(--quiz-subtle);
+  }
+
+  .level-selector-section {
+    margin-top: 20px;
+    border: 1px solid var(--quiz-stat-border);
+    border-radius: 14px;
+    background: var(--quiz-stat-bg);
+    padding: 18px;
+    text-align: left;
+    direction: ltr;
+    box-sizing: border-box;
+  }
+  .level-selector-section h3 {
+    font-size: 14px;
+    font-weight: 700;
+    color: var(--quiz-stat-label);
+    margin-bottom: 12px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .level-select-actions {
+    display: flex;
+    gap: 8px;
+  }
+  .level-select-action-btn {
+    background: var(--quiz-choice-bg);
+    border: 1px solid var(--quiz-choice-border);
+    color: var(--quiz-primary);
+    font-size: 11px;
+    font-weight: 700;
+    cursor: pointer;
+    text-decoration: none;
+    padding: 6px 12px;
+    border-radius: 20px;
+    transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+  .level-select-action-btn:hover {
+    background: var(--quiz-primary-soft);
+    border-color: var(--quiz-primary);
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(99, 102, 241, 0.15);
+  }
+  .level-selector-grid {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+    gap: 10px;
+    width: 100%;
+    box-sizing: border-box;
+  }
+  @media (min-width: 600px) {
+    .level-selector-grid {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+  }
+  .level-selector-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 12px 14px;
+    border: 1px solid var(--quiz-choice-border);
+    border-radius: 10px;
+    background: var(--quiz-choice-bg);
+    color: var(--quiz-choice-text);
+    cursor: pointer;
+    transition: all 0.2s ease;
+    user-select: none;
+    box-sizing: border-box;
+    width: 100%;
+    overflow: hidden;
+  }
+  .level-selector-item:hover {
+    border-color: var(--quiz-choice-hover-border);
+    background: var(--quiz-choice-hover-bg);
+    transform: translateY(-1px);
+  }
+  .level-selector-item.selected {
+    border-color: var(--quiz-primary);
+    background: var(--quiz-primary-soft);
+    color: var(--quiz-primary);
+  }
+  .level-selector-item input[type="checkbox"] {
+    display: none;
+  }
+  .level-selector-item .level-chk-indicator {
+    width: 20px;
+    height: 20px;
+    border: 2px solid var(--quiz-choice-border);
+    border-radius: 6px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 12px;
+    color: transparent;
+    transition: all 0.15s ease;
+    background: var(--quiz-choice-bg);
+    flex-shrink: 0;
+  }
+  .level-selector-item.selected .level-chk-indicator {
+    border-color: var(--quiz-primary);
+    background: var(--quiz-primary);
+    color: #fff;
+  }
+  .level-badge-lbl {
+    font-weight: 800;
+    background: var(--quiz-kicker-bg);
+    border: 1px solid var(--quiz-kicker-border);
+    color: var(--quiz-kicker-text);
+    padding: 3px 8px;
+    border-radius: 6px;
+    font-size: 11px;
+    flex-shrink: 0;
+  }
+  .level-title-lbl {
+    font-size: 13px;
+    font-weight: 600;
+    flex-grow: 1;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    text-align: left;
+    direction: ltr;
   }
 
   .auto-next-note {
@@ -752,19 +876,19 @@
 
 
 <div class="cover">
-  <div class="cover-badge">Study Booklet Â· Exam Prep</div>
+  <div class="cover-badge">Study Booklet Ã‚Â· Exam Prep</div>
   <h1>Security <span>Awareness</span><br>Training</h1>
   <p class="cover-sub">Levels L1  L6 &nbsp;|&nbsp; Questions & Key Concepts</p>
   <div class="cover-levels">
-    <div class="cover-level-pill">L1 · Training Techniques</div>
-    <div class="cover-level-pill">L2 · Gamification</div>
-    <div class="cover-level-pill">L3 · Measuring Effectiveness</div>
-    <div class="cover-level-pill">L4 · Risk Management</div>
-    <div class="cover-level-pill">L5 · Risk Assessment</div>
-    <div class="cover-level-pill">L6 · Cyber Resilience</div>
+    <div class="cover-level-pill">L1 Â· Training Techniques</div>
+    <div class="cover-level-pill">L2 Â· Gamification</div>
+    <div class="cover-level-pill">L3 Â· Measuring Effectiveness</div>
+    <div class="cover-level-pill">L4 Â· Risk Management</div>
+    <div class="cover-level-pill">L5 Â· Risk Assessment</div>
+    <div class="cover-level-pill">L6 Â· Cyber Resilience</div>
   </div>
   <div class="cover-divider"></div>
-  <div class="cover-footer">60 Questions &nbsp;Â·&nbsp; 6 Levels &nbsp;Â·&nbsp; Complete Review</div>
+  <div class="cover-footer">60 Questions &nbsp;Ã‚Â·&nbsp; 6 Levels &nbsp;Ã‚Â·&nbsp; Complete Review</div>
 </div>
 
 
@@ -782,12 +906,12 @@
 <div class="concepts-section">
   <div class="section-label">Key Concepts</div>
   <div class="concepts-grid">
-    <div class="concept-card"><div class="concept-key">Primary Goal</div><div class="concept-val">Change employee security culture and behavior â€” not just memorize facts</div></div>
+    <div class="concept-card"><div class="concept-key">Primary Goal</div><div class="concept-val">Change employee security culture and behavior Ã¢â‚¬â€ not just memorize facts</div></div>
     <div class="concept-card"><div class="concept-key">Gamification</div><div class="concept-val">Uses points, badges, and leaderboards to make training competitive and motivating</div></div>
-    <div class="concept-card"><div class="concept-key">Micro-learning</div><div class="concept-val">Small, focused doses of information â€” easier to absorb than long annual sessions</div></div>
+    <div class="concept-card"><div class="concept-key">Micro-learning</div><div class="concept-val">Small, focused doses of information Ã¢â‚¬â€ easier to absorb than long annual sessions</div></div>
     <div class="concept-card"><div class="concept-key">Teachable Moment</div><div class="concept-val">Immediately instructing employees right after they click a simulated phishing link</div></div>
     <div class="concept-card"><div class="concept-key">Spear Phishing</div><div class="concept-val">A targeted attack personalized using the victim's own information</div></div>
-    <div class="concept-card"><div class="concept-key">Hover Technology</div><div class="concept-val">Reveals the real hidden URL â€” always verify it matches the displayed link text</div></div>
+    <div class="concept-card"><div class="concept-key">Hover Technology</div><div class="concept-val">Reveals the real hidden URL Ã¢â‚¬â€ always verify it matches the displayed link text</div></div>
     <div class="concept-card"><div class="concept-key">AI in Training</div><div class="concept-val">Personalizes training content based on each employee's behavior patterns</div></div>
     <div class="concept-card"><div class="concept-key">Enable Macros Trick</div><div class="concept-val">Malicious Office files request macro access to execute hidden malware</div></div>
   </div>
@@ -804,7 +928,7 @@
       <div class="opt">C. Force employees to memorize software code</div>
       <div class="opt">D. Reduce number of computers</div>
     </div>
-    <div class="answer-row"><span class="answer-check">âœ“</span><span class="answer-text">Correct Answer: B</span></div>
+    <div class="answer-row"><span class="answer-check">Ã¢Å“â€œ</span><span class="answer-text">Correct Answer: B</span></div>
   </div>
 
   <div class="q-card">
@@ -815,7 +939,7 @@
       <div class="opt">C. Phishing Simulation</div>
       <div class="opt">D. Behavioral Analytics</div>
     </div>
-    <div class="answer-row"><span class="answer-check">âœ“</span><span class="answer-text">Correct Answer: A</span></div>
+    <div class="answer-row"><span class="answer-check">Ã¢Å“â€œ</span><span class="answer-text">Correct Answer: A</span></div>
   </div>
 
   <div class="q-card">
@@ -826,7 +950,7 @@
       <div class="opt">C. A year-end training session</div>
       <div class="opt">D. Sending a thank-you to all employees</div>
     </div>
-    <div class="answer-row"><span class="answer-check">âœ“</span><span class="answer-text">Correct Answer: B</span></div>
+    <div class="answer-row"><span class="answer-check">Ã¢Å“â€œ</span><span class="answer-text">Correct Answer: B</span></div>
   </div>
 
   <div class="q-card">
@@ -837,7 +961,7 @@
       <div class="opt">C. Number of characters in the link</div>
       <div class="opt">D. The font used in the message</div>
     </div>
-    <div class="answer-row"><span class="answer-check">âœ“</span><span class="answer-text">Correct Answer: B</span></div>
+    <div class="answer-row"><span class="answer-check">Ã¢Å“â€œ</span><span class="answer-text">Correct Answer: B</span></div>
   </div>
 
   <div class="q-card">
@@ -848,7 +972,7 @@
       <div class="opt">C. Eliminates the need for technology</div>
       <div class="opt">D. Done only once every five years</div>
     </div>
-    <div class="answer-row"><span class="answer-check">âœ“</span><span class="answer-text">Correct Answer: B</span></div>
+    <div class="answer-row"><span class="answer-check">Ã¢Å“â€œ</span><span class="answer-text">Correct Answer: B</span></div>
   </div>
 
   <div class="q-card">
@@ -859,18 +983,18 @@
       <div class="opt">C. A direct attack on company servers</div>
       <div class="opt">D. Antivirus software</div>
     </div>
-    <div class="answer-row"><span class="answer-check">âœ“</span><span class="answer-text">Correct Answer: B</span></div>
+    <div class="answer-row"><span class="answer-check">Ã¢Å“â€œ</span><span class="answer-text">Correct Answer: B</span></div>
   </div>
 
   <div class="q-card">
     <div class="q-num-row"><span class="q-num">Q7</span><span class="q-text">You get a reply from a colleague on an old chat with an unexpected file. What do you do?</span></div>
     <div class="options">
-      <div class="opt">A. Open it â€” it's from a trusted person</div>
+      <div class="opt">A. Open it Ã¢â‚¬â€ it's from a trusted person</div>
       <div class="opt">B. Download and scan on your personal device</div>
       <div class="opt">C. Call the colleague to verify the file's authenticity</div>
       <div class="opt">D. Ignore and delete without telling anyone</div>
     </div>
-    <div class="answer-row"><span class="answer-check">âœ“</span><span class="answer-text">Correct Answer: C</span></div>
+    <div class="answer-row"><span class="answer-check">Ã¢Å“â€œ</span><span class="answer-text">Correct Answer: C</span></div>
   </div>
 
   <div class="q-card">
@@ -881,7 +1005,7 @@
       <div class="opt">C. To increase file-opening speed</div>
       <div class="opt">D. Because the version is outdated</div>
     </div>
-    <div class="answer-row"><span class="answer-check">âœ“</span><span class="answer-text">Correct Answer: B</span></div>
+    <div class="answer-row"><span class="answer-check">Ã¢Å“â€œ</span><span class="answer-text">Correct Answer: B</span></div>
   </div>
 
   <div class="q-card">
@@ -892,7 +1016,7 @@
       <div class="opt">C. Unrealistic financial offers</div>
       <div class="opt">D. Excessive emojis</div>
     </div>
-    <div class="answer-row"><span class="answer-check">âœ“</span><span class="answer-text">Correct Answer: B</span></div>
+    <div class="answer-row"><span class="answer-check">Ã¢Å“â€œ</span><span class="answer-text">Correct Answer: B</span></div>
   </div>
 
   <div class="q-card">
@@ -903,7 +1027,7 @@
       <div class="opt">C. By sending only random emails</div>
       <div class="opt">D. By cutting off internet for vulnerable employees</div>
     </div>
-    <div class="answer-row"><span class="answer-check">âœ“</span><span class="answer-text">Correct Answer: B</span></div>
+    <div class="answer-row"><span class="answer-check">Ã¢Å“â€œ</span><span class="answer-text">Correct Answer: B</span></div>
   </div>
 </div>
 
@@ -920,12 +1044,12 @@
   <div class="section-label">Key Concepts</div>
   <div class="concepts-grid">
     <div class="concept-card"><div class="concept-key">Gamification</div><div class="concept-val">Integrating game design elements into non-game contexts to boost participation</div></div>
-    <div class="concept-card"><div class="concept-key">PBL Triad</div><div class="concept-val">Points â€“ Badges â€“ Leaderboards (the three core gamification elements)</div></div>
+    <div class="concept-card"><div class="concept-key">PBL Triad</div><div class="concept-val">Points Ã¢â‚¬â€œ Badges Ã¢â‚¬â€œ Leaderboards (the three core gamification elements)</div></div>
     <div class="concept-card"><div class="concept-key">Self-Determination Theory</div><div class="concept-val">Three basic needs: Competence, Autonomy, Connection</div></div>
     <div class="concept-card"><div class="concept-key">Bartle's Types</div><div class="concept-val">Achievers (goals), Explorers (discovery), Socializers (people), Killers (competition)</div></div>
-    <div class="concept-card"><div class="concept-key">High-Fidelity Simulation</div><div class="concept-val">Most realistic level â€” uses VR/AR technologies</div></div>
+    <div class="concept-card"><div class="concept-key">High-Fidelity Simulation</div><div class="concept-val">Most realistic level Ã¢â‚¬â€ uses VR/AR technologies</div></div>
     <div class="concept-card"><div class="concept-key">Phishing Sim Goal</div><div class="concept-val">Identify who clicks links or enters credentials in fake attack scenarios</div></div>
-    <div class="concept-card"><div class="concept-key">Zero Trust Mindset</div><div class="concept-val">First pillar of remote security â€” verify everything, trust nothing by default</div></div>
+    <div class="concept-card"><div class="concept-key">Zero Trust Mindset</div><div class="concept-val">First pillar of remote security Ã¢â‚¬â€ verify everything, trust nothing by default</div></div>
     <div class="concept-card"><div class="concept-key">Breach First Step</div><div class="concept-val">Disconnect the device from the internet immediately when a breach is suspected</div></div>
   </div>
 </div>
@@ -941,29 +1065,29 @@
       <div class="opt">C. Relying on traditional lectures</div>
       <div class="opt">D. Using real-life simulations only</div>
     </div>
-    <div class="answer-row"><span class="answer-check">âœ“</span><span class="answer-text">Correct Answer: B</span></div>
+    <div class="answer-row"><span class="answer-check">Ã¢Å“â€œ</span><span class="answer-text">Correct Answer: B</span></div>
   </div>
 
   <div class="q-card">
     <div class="q-num-row"><span class="q-num">Q2</span><span class="q-text">Which is known as the PBL Triad?</span></div>
     <div class="options">
-      <div class="opt">A. Competence â€“ Autonomy â€“ Connection</div>
-      <div class="opt">B. Points â€“ Badges â€“ Leaderboards</div>
-      <div class="opt">C. Mechanics â€“ Dynamics â€“ Emotions</div>
-      <div class="opt">D. Achievers â€“ Explorers â€“ Socializers</div>
+      <div class="opt">A. Competence â€œ Autonomy â€œ Connection</div>
+      <div class="opt">B. Points â€œ Badges â€œ Leaderboards</div>
+      <div class="opt">C. Mechanics â€œ Dynamics â€œ Emotions</div>
+      <div class="opt">D. Achievers â€œ Explorers â€œ Socializers</div>
     </div>
-    <div class="answer-row"><span class="answer-check">âœ“</span><span class="answer-text">Correct Answer: B</span></div>
+    <div class="answer-row"><span class="answer-check">Ã¢Å“â€œ</span><span class="answer-text">Correct Answer: B</span></div>
   </div>
 
   <div class="q-card">
     <div class="q-num-row"><span class="q-num">Q3</span><span class="q-text">According to Self-Determination Theory, what three needs does gamification support?</span></div>
     <div class="options">
-      <div class="opt">A. Competence â€“ Autonomy â€“ Connection</div>
-      <div class="opt">B. Mechanics â€“ Dynamics â€“ Emotions</div>
-      <div class="opt">C. Security â€“ Privacy â€“ Awareness</div>
-      <div class="opt">D. Points â€“ Badges â€“ Leaderboards</div>
+      <div class="opt">A. Competence â€œ Autonomy â€œ Connection</div>
+      <div class="opt">B. Mechanics â€œ Dynamics â€œ Emotions</div>
+      <div class="opt">C. Security â€œ Privacy â€œ Awareness</div>
+      <div class="opt">D. Points â€œ Badges â€œ Leaderboards</div>
     </div>
-    <div class="answer-row"><span class="answer-check">âœ“</span><span class="answer-text">Correct Answer: A</span></div>
+    <div class="answer-row"><span class="answer-check">Ã¢Å“â€œ</span><span class="answer-text">Correct Answer: A</span></div>
   </div>
 
   <div class="q-card">
@@ -974,7 +1098,7 @@
       <div class="opt">C. Socializers</div>
       <div class="opt">D. Killers</div>
     </div>
-    <div class="answer-row"><span class="answer-check">âœ“</span><span class="answer-text">Correct Answer: B</span></div>
+    <div class="answer-row"><span class="answer-check">Ã¢Å“â€œ</span><span class="answer-text">Correct Answer: B</span></div>
   </div>
 
   <div class="q-card">
@@ -985,7 +1109,7 @@
       <div class="opt">C. High-Fidelity</div>
       <div class="opt">D. Paper-Based</div>
     </div>
-    <div class="answer-row"><span class="answer-check">âœ“</span><span class="answer-text">Correct Answer: C</span></div>
+    <div class="answer-row"><span class="answer-check">Ã¢Å“â€œ</span><span class="answer-text">Correct Answer: C</span></div>
   </div>
 
   <div class="q-card">
@@ -996,7 +1120,7 @@
       <div class="opt">C. Training on resource management</div>
       <div class="opt">D. Enhancing social interaction</div>
     </div>
-    <div class="answer-row"><span class="answer-check">âœ“</span><span class="answer-text">Correct Answer: B</span></div>
+    <div class="answer-row"><span class="answer-check">Ã¢Å“â€œ</span><span class="answer-text">Correct Answer: B</span></div>
   </div>
 
   <div class="q-card">
@@ -1007,7 +1131,7 @@
       <div class="opt">C. Smishing attacks</div>
       <div class="opt">D. Weak two-factor authentication</div>
     </div>
-    <div class="answer-row"><span class="answer-check">âœ“</span><span class="answer-text">Correct Answer: A</span></div>
+    <div class="answer-row"><span class="answer-check">Ã¢Å“â€œ</span><span class="answer-text">Correct Answer: A</span></div>
   </div>
 
   <div class="q-card">
@@ -1018,7 +1142,7 @@
       <div class="opt">C. Endpoint Security</div>
       <div class="opt">D. Incident Response</div>
     </div>
-    <div class="answer-row"><span class="answer-check">âœ“</span><span class="answer-text">Correct Answer: B</span></div>
+    <div class="answer-row"><span class="answer-check">Ã¢Å“â€œ</span><span class="answer-text">Correct Answer: B</span></div>
   </div>
 
   <div class="q-card">
@@ -1029,7 +1153,7 @@
       <div class="opt">C. Disconnect the device from the internet</div>
       <div class="opt">D. Change the password right away</div>
     </div>
-    <div class="answer-row"><span class="answer-check">âœ“</span><span class="answer-text">Correct Answer: C</span></div>
+    <div class="answer-row"><span class="answer-check">Ã¢Å“â€œ</span><span class="answer-text">Correct Answer: C</span></div>
   </div>
 
   <div class="q-card">
@@ -1040,7 +1164,7 @@
       <div class="opt">C. Enabling automatic OS updates</div>
       <div class="opt">D. Leaving device unlocked in public</div>
     </div>
-    <div class="answer-row"><span class="answer-check">âœ“</span><span class="answer-text">Correct Answer: C</span></div>
+    <div class="answer-row"><span class="answer-check">Ã¢Å“â€œ</span><span class="answer-text">Correct Answer: C</span></div>
   </div>
 </div>
 
@@ -1056,12 +1180,12 @@
 <div class="concepts-section">
   <div class="section-label">Key Concepts</div>
   <div class="concepts-grid">
-    <div class="concept-card"><div class="concept-key">Kirkpatrick Model</div><div class="concept-val">4-level framework: Reaction â†’ Learning â†’ Behavior â†’ ROI</div></div>
-    <div class="concept-card"><div class="concept-key">Level 1 â€“ Reaction</div><div class="concept-val">Measures trainee satisfaction and content clarity</div></div>
-    <div class="concept-card"><div class="concept-key">Level 2 â€“ Learning</div><div class="concept-val">Measures knowledge gain using pre-test / post-test</div></div>
-    <div class="concept-card"><div class="concept-key">Level 3 â€“ Behavior</div><div class="concept-val">Measures actual behavior change in the workplace</div></div>
-    <div class="concept-card"><div class="concept-key">Level 4 â€“ ROI</div><div class="concept-val">Measures return on investment and business impact</div></div>
-    <div class="concept-card"><div class="concept-key">Reporting Rate</div><div class="concept-val">Top maturity indicator â€” % who reported a phishing attempt</div></div>
+    <div class="concept-card"><div class="concept-key">Kirkpatrick Model</div><div class="concept-val">4-level framework: Reaction Ã¢â€ â€™ Learning Ã¢â€ â€™ Behavior Ã¢â€ â€™ ROI</div></div>
+    <div class="concept-card"><div class="concept-key">Level 1 â€œ Reaction</div><div class="concept-val">Measures trainee satisfaction and content clarity</div></div>
+    <div class="concept-card"><div class="concept-key">Level 2 â€œ Learning</div><div class="concept-val">Measures knowledge gain using pre-test / post-test</div></div>
+    <div class="concept-card"><div class="concept-key">Level 3 â€œ Behavior</div><div class="concept-val">Measures actual behavior change in the workplace</div></div>
+    <div class="concept-card"><div class="concept-key">Level 4 â€œ ROI</div><div class="concept-val">Measures return on investment and business impact</div></div>
+    <div class="concept-card"><div class="concept-key">Reporting Rate</div><div class="concept-val">Top maturity indicator Ã¢â‚¬â€ % who reported a phishing attempt</div></div>
     <div class="concept-card"><div class="concept-key">Score Improvement</div><div class="concept-val">Difference between pre-test and post-test results</div></div>
     <div class="concept-card"><div class="concept-key">Gap Analysis</div><div class="concept-val">Identifies vulnerable groups and repeat offenders</div></div>
   </div>
@@ -1078,7 +1202,7 @@
       <div class="opt">C. Employee recruitment</div>
       <div class="opt">D. Firewall configuration</div>
     </div>
-    <div class="answer-row"><span class="answer-check">âœ“</span><span class="answer-text">Correct Answer: B</span></div>
+    <div class="answer-row"><span class="answer-check">Ã¢Å“â€œ</span><span class="answer-text">Correct Answer: B</span></div>
   </div>
 
   <div class="q-card">
@@ -1089,7 +1213,7 @@
       <div class="opt">C. Porter's Five Forces</div>
       <div class="opt">D. Risk Matrix</div>
     </div>
-    <div class="answer-row"><span class="answer-check">âœ“</span><span class="answer-text">Correct Answer: B</span></div>
+    <div class="answer-row"><span class="answer-check">Ã¢Å“â€œ</span><span class="answer-text">Correct Answer: B</span></div>
   </div>
 
   <div class="q-card">
@@ -1100,7 +1224,7 @@
       <div class="opt">C. ROI of training</div>
       <div class="opt">D. Compliance rates</div>
     </div>
-    <div class="answer-row"><span class="answer-check">âœ“</span><span class="answer-text">Correct Answer: B</span></div>
+    <div class="answer-row"><span class="answer-check">Ã¢Å“â€œ</span><span class="answer-text">Correct Answer: B</span></div>
   </div>
 
   <div class="q-card">
@@ -1111,7 +1235,7 @@
       <div class="opt">C. ROI calculations</div>
       <div class="opt">D. Gap analysis</div>
     </div>
-    <div class="answer-row"><span class="answer-check">âœ“</span><span class="answer-text">Correct Answer: B</span></div>
+    <div class="answer-row"><span class="answer-check">Ã¢Å“â€œ</span><span class="answer-text">Correct Answer: B</span></div>
   </div>
 
   <div class="q-card">
@@ -1122,7 +1246,7 @@
       <div class="opt">C. Behavior</div>
       <div class="opt">D. ROI</div>
     </div>
-    <div class="answer-row"><span class="answer-check">âœ“</span><span class="answer-text">Correct Answer: C</span></div>
+    <div class="answer-row"><span class="answer-check">Ã¢Å“â€œ</span><span class="answer-text">Correct Answer: C</span></div>
   </div>
 
   <div class="q-card">
@@ -1133,7 +1257,7 @@
       <div class="opt">C. Time to Report</div>
       <div class="opt">D. Completion Rate</div>
     </div>
-    <div class="answer-row"><span class="answer-check">âœ“</span><span class="answer-text">Correct Answer: B</span></div>
+    <div class="answer-row"><span class="answer-check">Ã¢Å“â€œ</span><span class="answer-text">Correct Answer: B</span></div>
   </div>
 
   <div class="q-card">
@@ -1144,7 +1268,7 @@
       <div class="opt">C. Percentage of outdated devices</div>
       <div class="opt">D. ROI of training</div>
     </div>
-    <div class="answer-row"><span class="answer-check">âœ“</span><span class="answer-text">Correct Answer: A</span></div>
+    <div class="answer-row"><span class="answer-check">Ã¢Å“â€œ</span><span class="answer-text">Correct Answer: A</span></div>
   </div>
 
   <div class="q-card">
@@ -1155,7 +1279,7 @@
       <div class="opt">C. To measure course completion rates</div>
       <div class="opt">D. To evaluate trainer performance</div>
     </div>
-    <div class="answer-row"><span class="answer-check">âœ“</span><span class="answer-text">Correct Answer: B</span></div>
+    <div class="answer-row"><span class="answer-check">Ã¢Å“â€œ</span><span class="answer-text">Correct Answer: B</span></div>
   </div>
 
   <div class="q-card">
@@ -1166,7 +1290,7 @@
       <div class="opt">C. Security as part of daily values</div>
       <div class="opt">D. Advanced metrics</div>
     </div>
-    <div class="answer-row"><span class="answer-check">âœ“</span><span class="answer-text">Correct Answer: C</span></div>
+    <div class="answer-row"><span class="answer-check">Ã¢Å“â€œ</span><span class="answer-text">Correct Answer: C</span></div>
   </div>
 
   <div class="q-card">
@@ -1177,7 +1301,7 @@
       <div class="opt">C. It identifies repeat offenders</div>
       <div class="opt">D. It calculates phishing click rates</div>
     </div>
-    <div class="answer-row"><span class="answer-check">âœ“</span><span class="answer-text">Correct Answer: B</span></div>
+    <div class="answer-row"><span class="answer-check">Ã¢Å“â€œ</span><span class="answer-text">Correct Answer: B</span></div>
   </div>
 </div>
 
@@ -1194,12 +1318,12 @@
   <div class="section-label">Key Concepts</div>
   <div class="concepts-grid">
     <div class="concept-card"><div class="concept-key">Information Risk</div><div class="concept-val">The possibility that a threat exploits a vulnerability to cause harm</div></div>
-    <div class="concept-card"><div class="concept-key">CIA Triad</div><div class="concept-val">Confidentiality Â· Integrity Â· Availability â€” the three core security principles</div></div>
+    <div class="concept-card"><div class="concept-key">CIA Triad</div><div class="concept-val">Confidentiality Ã‚Â· Integrity Ã‚Â· Availability Ã¢â‚¬â€ the three core security principles</div></div>
     <div class="concept-card"><div class="concept-key">Confidentiality</div><div class="concept-val">Information is not disclosed to unauthorized parties</div></div>
     <div class="concept-card"><div class="concept-key">Integrity</div><div class="concept-val">Information is accurate and has not been modified</div></div>
     <div class="concept-card"><div class="concept-key">Availability</div><div class="concept-val">Information is accessible when needed</div></div>
-    <div class="concept-card"><div class="concept-key">Risk Components</div><div class="concept-val">Asset Â· Threat Â· Vulnerability Â· Control</div></div>
-    <div class="concept-card"><div class="concept-key">RMF</div><div class="concept-val">Risk Management Framework â€” developed by NIST</div></div>
+    <div class="concept-card"><div class="concept-key">Risk Components</div><div class="concept-val">Asset Ã‚Â· Threat Ã‚Â· Vulnerability Ã‚Â· Control</div></div>
+    <div class="concept-card"><div class="concept-key">RMF</div><div class="concept-val">Risk Management Framework Ã¢â‚¬â€ developed by NIST</div></div>
     <div class="concept-card"><div class="concept-key">ISO/IEC 27005</div><div class="concept-val">International standard for information security risk management</div></div>
   </div>
 </div>
@@ -1215,7 +1339,7 @@
       <div class="opt">C. The process of storing information</div>
       <div class="opt">D. The speed of information processing</div>
     </div>
-    <div class="answer-row"><span class="answer-check">âœ“</span><span class="answer-text">Correct Answer: B</span></div>
+    <div class="answer-row"><span class="answer-check">Ã¢Å“â€œ</span><span class="answer-text">Correct Answer: B</span></div>
   </div>
 
   <div class="q-card">
@@ -1226,7 +1350,7 @@
       <div class="opt">C. CIA Triad</div>
       <div class="opt">D. ISO Model</div>
     </div>
-    <div class="answer-row"><span class="answer-check">âœ“</span><span class="answer-text">Correct Answer: C</span></div>
+    <div class="answer-row"><span class="answer-check">Ã¢Å“â€œ</span><span class="answer-text">Correct Answer: C</span></div>
   </div>
 
   <div class="q-card">
@@ -1237,7 +1361,7 @@
       <div class="opt">C. Availability</div>
       <div class="opt">D. Authentication</div>
     </div>
-    <div class="answer-row"><span class="answer-check">âœ“</span><span class="answer-text">Correct Answer: C</span></div>
+    <div class="answer-row"><span class="answer-check">Ã¢Å“â€œ</span><span class="answer-text">Correct Answer: C</span></div>
   </div>
 
   <div class="q-card">
@@ -1248,7 +1372,7 @@
       <div class="opt">C. Vulnerability</div>
       <div class="opt">D. Control</div>
     </div>
-    <div class="answer-row"><span class="answer-check">âœ“</span><span class="answer-text">Correct Answer: C</span></div>
+    <div class="answer-row"><span class="answer-check">Ã¢Å“â€œ</span><span class="answer-text">Correct Answer: C</span></div>
   </div>
 
   <div class="q-card">
@@ -1259,7 +1383,7 @@
       <div class="opt">C. Employee mistakes</div>
       <div class="opt">D. Lack of security policy</div>
     </div>
-    <div class="answer-row"><span class="answer-check">âœ“</span><span class="answer-text">Correct Answer: B</span></div>
+    <div class="answer-row"><span class="answer-check">Ã¢Å“â€œ</span><span class="answer-text">Correct Answer: B</span></div>
   </div>
 
   <div class="q-card">
@@ -1270,7 +1394,7 @@
       <div class="opt">C. Human risk</div>
       <div class="opt">D. Organizational risk</div>
     </div>
-    <div class="answer-row"><span class="answer-check">âœ“</span><span class="answer-text">Correct Answer: C</span></div>
+    <div class="answer-row"><span class="answer-check">Ã¢Å“â€œ</span><span class="answer-text">Correct Answer: C</span></div>
   </div>
 
   <div class="q-card">
@@ -1281,7 +1405,7 @@
       <div class="opt">C. Risk evaluation</div>
       <div class="opt">D. Risk treatment</div>
     </div>
-    <div class="answer-row"><span class="answer-check">âœ“</span><span class="answer-text">Correct Answer: B</span></div>
+    <div class="answer-row"><span class="answer-check">Ã¢Å“â€œ</span><span class="answer-text">Correct Answer: B</span></div>
   </div>
 
   <div class="q-card">
@@ -1292,7 +1416,7 @@
       <div class="opt">C. Hardware and software</div>
       <div class="opt">D. Speed and performance</div>
     </div>
-    <div class="answer-row"><span class="answer-check">âœ“</span><span class="answer-text">Correct Answer: B</span></div>
+    <div class="answer-row"><span class="answer-check">Ã¢Å“â€œ</span><span class="answer-text">Correct Answer: B</span></div>
   </div>
 
   <div class="q-card">
@@ -1303,7 +1427,7 @@
       <div class="opt">C. National Institute of Standards and Technology (NIST)</div>
       <div class="opt">D. Cisco</div>
     </div>
-    <div class="answer-row"><span class="answer-check">âœ“</span><span class="answer-text">Correct Answer: C</span></div>
+    <div class="answer-row"><span class="answer-check">Ã¢Å“â€œ</span><span class="answer-text">Correct Answer: C</span></div>
   </div>
 
   <div class="q-card">
@@ -1314,7 +1438,7 @@
       <div class="opt">C. Information security risk management</div>
       <div class="opt">D. Software development</div>
     </div>
-    <div class="answer-row"><span class="answer-check">âœ“</span><span class="answer-text">Correct Answer: C</span></div>
+    <div class="answer-row"><span class="answer-check">Ã¢Å“â€œ</span><span class="answer-text">Correct Answer: C</span></div>
   </div>
 </div>
 
@@ -1331,11 +1455,11 @@
   <div class="section-label">Key Concepts</div>
   <div class="concepts-grid">
     <div class="concept-card"><div class="concept-key">Qualitative Analysis</div><div class="concept-val">Expert judgment; descriptive terms (High/Medium/Low); limitation = subjectivity</div></div>
-    <div class="concept-card"><div class="concept-key">Quantitative Analysis</div><div class="concept-val">Math-based; ALE = SLE Ã— ARO</div></div>
-    <div class="concept-card"><div class="concept-key">ALE</div><div class="concept-val">Annual Loss Expectancy â€” total expected loss per year</div></div>
-    <div class="concept-card"><div class="concept-key">SLE / ARO</div><div class="concept-val">SLE = Single Loss Expectancy Â· ARO = Annual Rate of Occurrence</div></div>
-    <div class="concept-card"><div class="concept-key">Risk Matrix</div><div class="concept-val">Combines Likelihood + Impact â†’ High + High = Critical Risk</div></div>
-    <div class="concept-card"><div class="concept-key">Risk Strategies</div><div class="concept-val">Mitigation Â· Transfer (insurance) Â· Avoidance Â· Acceptance</div></div>
+    <div class="concept-card"><div class="concept-key">Quantitative Analysis</div><div class="concept-val">Math-based; ALE = SLE Ãƒâ€” ARO</div></div>
+    <div class="concept-card"><div class="concept-key">ALE</div><div class="concept-val">Annual Loss Expectancy Ã¢â‚¬â€ total expected loss per year</div></div>
+    <div class="concept-card"><div class="concept-key">SLE / ARO</div><div class="concept-val">SLE = Single Loss Expectancy Ã‚Â· ARO = Annual Rate of Occurrence</div></div>
+    <div class="concept-card"><div class="concept-key">Risk Matrix</div><div class="concept-val">Combines Likelihood + Impact Ã¢â€ â€™ High + High = Critical Risk</div></div>
+    <div class="concept-card"><div class="concept-key">Risk Strategies</div><div class="concept-val">Mitigation Ã‚Â· Transfer (insurance) Ã‚Â· Avoidance Ã‚Â· Acceptance</div></div>
     <div class="concept-card"><div class="concept-key">Preventive Controls</div><div class="concept-val">Stop incidents before they occur</div></div>
     <div class="concept-card"><div class="concept-key">Detective Controls</div><div class="concept-val">Identify incidents as they happen (e.g., IDS)</div></div>
   </div>
@@ -1352,7 +1476,7 @@
       <div class="opt">C. Increasing system complexity</div>
       <div class="opt">D. Reducing system performance</div>
     </div>
-    <div class="answer-row"><span class="answer-check">âœ“</span><span class="answer-text">Correct Answer: B</span></div>
+    <div class="answer-row"><span class="answer-check">Ã¢Å“â€œ</span><span class="answer-text">Correct Answer: B</span></div>
   </div>
 
   <div class="q-card">
@@ -1363,7 +1487,7 @@
       <div class="opt">C. Expert judgment and descriptive evaluation</div>
       <div class="opt">D. Automated tools only</div>
     </div>
-    <div class="answer-row"><span class="answer-check">âœ“</span><span class="answer-text">Correct Answer: C</span></div>
+    <div class="answer-row"><span class="answer-check">Ã¢Å“â€œ</span><span class="answer-text">Correct Answer: C</span></div>
   </div>
 
   <div class="q-card">
@@ -1374,7 +1498,7 @@
       <div class="opt">C. Subjectivity</div>
       <div class="opt">D. Requires high cost</div>
     </div>
-    <div class="answer-row"><span class="answer-check">âœ“</span><span class="answer-text">Correct Answer: C</span></div>
+    <div class="answer-row"><span class="answer-check">Ã¢Å“â€œ</span><span class="answer-text">Correct Answer: C</span></div>
   </div>
 
   <div class="q-card">
@@ -1385,18 +1509,18 @@
       <div class="opt">C. Annual Loss Expectancy</div>
       <div class="opt">D. Actual Loss Equation</div>
     </div>
-    <div class="answer-row"><span class="answer-check">âœ“</span><span class="answer-text">Correct Answer: C</span></div>
+    <div class="answer-row"><span class="answer-check">Ã¢Å“â€œ</span><span class="answer-text">Correct Answer: C</span></div>
   </div>
 
   <div class="q-card">
     <div class="q-num-row"><span class="q-num">Q5</span><span class="q-text">Which formula is used to calculate ALE?</span></div>
     <div class="options">
-      <div class="opt">A. ALE = Impact Ã— Risk</div>
-      <div class="opt">B. ALE = SLE Ã— ARO</div>
-      <div class="opt">C. ALE = Threat Ã— Vulnerability</div>
-      <div class="opt">D. ALE = Asset Ã— Loss</div>
+      <div class="opt">A. ALE = Impact Ãƒâ€” Risk</div>
+      <div class="opt">B. ALE = SLE Ãƒâ€” ARO</div>
+      <div class="opt">C. ALE = Threat Ãƒâ€” Vulnerability</div>
+      <div class="opt">D. ALE = Asset Ãƒâ€” Loss</div>
     </div>
-    <div class="answer-row"><span class="answer-check">âœ“</span><span class="answer-text">Correct Answer: B</span></div>
+    <div class="answer-row"><span class="answer-check">Ã¢Å“â€œ</span><span class="answer-text">Correct Answer: B</span></div>
   </div>
 
   <div class="q-card">
@@ -1407,7 +1531,7 @@
       <div class="opt">C. High Risk</div>
       <div class="opt">D. Critical Risk</div>
     </div>
-    <div class="answer-row"><span class="answer-check">âœ“</span><span class="answer-text">Correct Answer: D</span></div>
+    <div class="answer-row"><span class="answer-check">Ã¢Å“â€œ</span><span class="answer-text">Correct Answer: D</span></div>
   </div>
 
   <div class="q-card">
@@ -1418,7 +1542,7 @@
       <div class="opt">C. Avoidance</div>
       <div class="opt">D. Acceptance</div>
     </div>
-    <div class="answer-row"><span class="answer-check">âœ“</span><span class="answer-text">Correct Answer: C</span></div>
+    <div class="answer-row"><span class="answer-check">Ã¢Å“â€œ</span><span class="answer-text">Correct Answer: C</span></div>
   </div>
 
   <div class="q-card">
@@ -1429,7 +1553,7 @@
       <div class="opt">C. Purchasing cyber insurance</div>
       <div class="opt">D. Ignoring the risk</div>
     </div>
-    <div class="answer-row"><span class="answer-check">âœ“</span><span class="answer-text">Correct Answer: C</span></div>
+    <div class="answer-row"><span class="answer-check">Ã¢Å“â€œ</span><span class="answer-text">Correct Answer: C</span></div>
   </div>
 
   <div class="q-card">
@@ -1440,7 +1564,7 @@
       <div class="opt">C. Corrective controls</div>
       <div class="opt">D. Administrative controls</div>
     </div>
-    <div class="answer-row"><span class="answer-check">âœ“</span><span class="answer-text">Correct Answer: B</span></div>
+    <div class="answer-row"><span class="answer-check">Ã¢Å“â€œ</span><span class="answer-text">Correct Answer: B</span></div>
   </div>
 
   <div class="q-card">
@@ -1451,7 +1575,7 @@
       <div class="opt">C. To track changes and update risk controls</div>
       <div class="opt">D. To increase risk levels</div>
     </div>
-    <div class="answer-row"><span class="answer-check">âœ“</span><span class="answer-text">Correct Answer: C</span></div>
+    <div class="answer-row"><span class="answer-check">Ã¢Å“â€œ</span><span class="answer-text">Correct Answer: C</span></div>
   </div>
 </div>
 
@@ -1489,7 +1613,7 @@
       <div class="opt">C. Legal compliance only</div>
       <div class="opt">D. Data backup</div>
     </div>
-    <div class="answer-row"><span class="answer-check">âœ“</span><span class="answer-text">Correct Answer: B</span></div>
+    <div class="answer-row"><span class="answer-check">Ã¢Å“â€œ</span><span class="answer-text">Correct Answer: B</span></div>
   </div>
 
   <div class="q-card">
@@ -1500,7 +1624,7 @@
       <div class="opt">C. Internal threats only</div>
       <div class="opt">D. Backup only</div>
     </div>
-    <div class="answer-row"><span class="answer-check">âœ“</span><span class="answer-text">Correct Answer: A</span></div>
+    <div class="answer-row"><span class="answer-check">Ã¢Å“â€œ</span><span class="answer-text">Correct Answer: A</span></div>
   </div>
 
   <div class="q-card">
@@ -1511,7 +1635,7 @@
       <div class="opt">C. Threat &rarr; Vulnerability &rarr; Exploit &rarr; Impact &rarr; Response</div>
       <div class="opt">D. Impact &rarr; Exploit &rarr; Threat &rarr; Response</div>
     </div>
-    <div class="answer-row"><span class="answer-check">âœ“</span><span class="answer-text">Correct Answer: C</span></div>
+    <div class="answer-row"><span class="answer-check">Ã¢Å“â€œ</span><span class="answer-text">Correct Answer: C</span></div>
   </div>
 
   <div class="q-card">
@@ -1522,7 +1646,7 @@
       <div class="opt">C. Security is short-term, resilience is long-term</div>
       <div class="opt">D. Security depends on humans, resilience depends on technology</div>
     </div>
-    <div class="answer-row"><span class="answer-check">âœ“</span><span class="answer-text">Correct Answer: A</span></div>
+    <div class="answer-row"><span class="answer-check">Ã¢Å“â€œ</span><span class="answer-text">Correct Answer: A</span></div>
   </div>
 
   <div class="q-card">
@@ -1533,7 +1657,7 @@
       <div class="opt">C. Regulatory compliance only</div>
       <div class="opt">D. Reducing the number of systems</div>
     </div>
-    <div class="answer-row"><span class="answer-check">âœ“</span><span class="answer-text">Correct Answer: B</span></div>
+    <div class="answer-row"><span class="answer-check">Ã¢Å“â€œ</span><span class="answer-text">Correct Answer: B</span></div>
   </div>
 
   <div class="q-card">
@@ -1544,7 +1668,7 @@
       <div class="opt">C. Manage identity and access</div>
       <div class="opt">D. Perform cloud backup</div>
     </div>
-    <div class="answer-row"><span class="answer-check">âœ“</span><span class="answer-text">Correct Answer: A</span></div>
+    <div class="answer-row"><span class="answer-check">Ã¢Å“â€œ</span><span class="answer-text">Correct Answer: A</span></div>
   </div>
 
   <div class="q-card">
@@ -1555,7 +1679,7 @@
       <div class="opt">C. Backup systems</div>
       <div class="opt">D. Regulatory compliance</div>
     </div>
-    <div class="answer-row"><span class="answer-check">âœ“</span><span class="answer-text">Correct Answer: B</span></div>
+    <div class="answer-row"><span class="answer-check">Ã¢Å“â€œ</span><span class="answer-text">Correct Answer: B</span></div>
   </div>
 
   <div class="q-card">
@@ -1566,7 +1690,7 @@
       <div class="opt">C. Security, Legal, Operational, Financial</div>
       <div class="opt">D. Internal, External, Human, Technical</div>
     </div>
-    <div class="answer-row"><span class="answer-check">âœ“</span><span class="answer-text">Correct Answer: A</span></div>
+    <div class="answer-row"><span class="answer-check">Ã¢Å“â€œ</span><span class="answer-text">Correct Answer: A</span></div>
   </div>
 
   <div class="q-card">
@@ -1577,7 +1701,7 @@
       <div class="opt">C. Complete clarity of threats</div>
       <div class="opt">D. Absence of human error</div>
     </div>
-    <div class="answer-row"><span class="answer-check">âœ“</span><span class="answer-text">Correct Answer: B</span></div>
+    <div class="answer-row"><span class="answer-check">Ã¢Å“â€œ</span><span class="answer-text">Correct Answer: B</span></div>
   </div>
 
   <div class="q-card">
@@ -1588,10 +1712,549 @@
       <div class="opt">C. Both together to identify critical vulnerabilities and reduce risk</div>
       <div class="opt">D. Regulatory compliance only</div>
     </div>
-    <div class="answer-row"><span class="answer-check">âœ“</span><span class="answer-text">Correct Answer: C</span></div>
+    <div class="answer-row"><span class="answer-check">Ã¢Å“â€œ</span><span class="answer-text">Correct Answer: C</span></div>
   </div>
 </div>
 
+
+<div class="level-header page-break">
+  <div class="level-badge">EX</div>
+  <div>
+    <h2>Extended Practice Pack</h2>
+    <p>50 Question & Answer, 35 Fill in the Blank, and 25 Matching items</p>
+  </div>
+</div>
+
+<div class="concepts-section">
+  <div class="section-label">Package Overview</div>
+  <div class="concepts-grid">
+    <div class="concept-card"><div class="concept-key">Question & Answer</div><div class="concept-val">50 direct questions with concise model answers.</div></div>
+    <div class="concept-card"><div class="concept-key">Fill in the Blank</div><div class="concept-val">35 sentence-completion items with answer keys.</div></div>
+    <div class="concept-card"><div class="concept-key">Matching</div><div class="concept-val">25 term-to-definition matching prompts with correct mapping.</div></div>
+    <div class="concept-card"><div class="concept-key">Scope</div><div class="concept-val">Focused on practical security awareness and risk management fundamentals.</div></div>
+  </div>
+</div>
+
+<div class="questions-section">
+  <div class="section-label">50 Questions and Answers</div>
+
+  <div class="q-card"><div class="q-num-row"><span class="q-num">QA1</span><span class="q-text">What is the safest first action when a suspicious email arrives?</span></div><div class="answer-row"><span class="answer-check">&#10003;</span><span class="answer-text">Answer: Do not click anything and report the email to the security team.</span></div></div>
+  <div class="q-card"><div class="q-num-row"><span class="q-num">QA2</span><span class="q-text">Why is multi-factor authentication important?</span></div><div class="answer-row"><span class="answer-check">&#10003;</span><span class="answer-text">Answer: It adds an extra verification layer even if a password is stolen.</span></div></div>
+  <div class="q-card"><div class="q-num-row"><span class="q-num">QA3</span><span class="q-text">What is phishing?</span></div><div class="answer-row"><span class="answer-check">&#10003;</span><span class="answer-text">Answer: A social engineering attack that tricks users into revealing data.</span></div></div>
+  <div class="q-card"><div class="q-num-row"><span class="q-num">QA4</span><span class="q-text">What is spear phishing?</span></div><div class="answer-row"><span class="answer-check">&#10003;</span><span class="answer-text">Answer: A highly targeted phishing message tailored to a specific person.</span></div></div>
+  <div class="q-card"><div class="q-num-row"><span class="q-num">QA5</span><span class="q-text">How can you verify a suspicious link?</span></div><div class="answer-row"><span class="answer-check">&#10003;</span><span class="answer-text">Answer: Hover over the link to inspect the real destination URL.</span></div></div>
+  <div class="q-card"><div class="q-num-row"><span class="q-num">QA6</span><span class="q-text">What should you do before opening an unexpected attachment?</span></div><div class="answer-row"><span class="answer-check">&#10003;</span><span class="answer-text">Answer: Verify with the sender through a trusted separate channel.</span></div></div>
+  <div class="q-card"><div class="q-num-row"><span class="q-num">QA7</span><span class="q-text">What makes a strong password?</span></div><div class="answer-row"><span class="answer-check">&#10003;</span><span class="answer-text">Answer: Long, unique, and random with mixed character types.</span></div></div>
+  <div class="q-card"><div class="q-num-row"><span class="q-num">QA8</span><span class="q-text">Why should passwords never be reused across services?</span></div><div class="answer-row"><span class="answer-check">&#10003;</span><span class="answer-text">Answer: One breach can expose multiple accounts.</span></div></div>
+  <div class="q-card"><div class="q-num-row"><span class="q-num">QA9</span><span class="q-text">What is the role of a password manager?</span></div><div class="answer-row"><span class="answer-check">&#10003;</span><span class="answer-text">Answer: It securely stores and generates strong unique passwords.</span></div></div>
+  <div class="q-card"><div class="q-num-row"><span class="q-num">QA10</span><span class="q-text">What does ransomware do?</span></div><div class="answer-row"><span class="answer-check">&#10003;</span><span class="answer-text">Answer: It encrypts files and demands payment for decryption.</span></div></div>
+  <div class="q-card"><div class="q-num-row"><span class="q-num">QA11</span><span class="q-text">What is a security incident?</span></div><div class="answer-row"><span class="answer-check">&#10003;</span><span class="answer-text">Answer: Any event that may compromise confidentiality, integrity, or availability.</span></div></div>
+  <div class="q-card"><div class="q-num-row"><span class="q-num">QA12</span><span class="q-text">Why is fast incident reporting important?</span></div><div class="answer-row"><span class="answer-check">&#10003;</span><span class="answer-text">Answer: It reduces damage and speeds containment.</span></div></div>
+  <div class="q-card"><div class="q-num-row"><span class="q-num">QA13</span><span class="q-text">What is social engineering?</span></div><div class="answer-row"><span class="answer-check">&#10003;</span><span class="answer-text">Answer: Manipulating people to bypass security controls.</span></div></div>
+  <div class="q-card"><div class="q-num-row"><span class="q-num">QA14</span><span class="q-text">What is tailgating in physical security?</span></div><div class="answer-row"><span class="answer-check">&#10003;</span><span class="answer-text">Answer: An unauthorized person follows someone into a restricted area.</span></div></div>
+  <div class="q-card"><div class="q-num-row"><span class="q-num">QA15</span><span class="q-text">Why should screens be locked when leaving a desk?</span></div><div class="answer-row"><span class="answer-check">&#10003;</span><span class="answer-text">Answer: To prevent unauthorized access to active sessions.</span></div></div>
+  <div class="q-card"><div class="q-num-row"><span class="q-num">QA16</span><span class="q-text">What is data classification?</span></div><div class="answer-row"><span class="answer-check">&#10003;</span><span class="answer-text">Answer: Labeling data by sensitivity to apply proper controls.</span></div></div>
+  <div class="q-card"><div class="q-num-row"><span class="q-num">QA17</span><span class="q-text">Why is least privilege important?</span></div><div class="answer-row"><span class="answer-check">&#10003;</span><span class="answer-text">Answer: It limits access to only what is necessary, reducing abuse risk.</span></div></div>
+  <div class="q-card"><div class="q-num-row"><span class="q-num">QA18</span><span class="q-text">What does VPN use in remote work?</span></div><div class="answer-row"><span class="answer-check">&#10003;</span><span class="answer-text">Answer: It encrypts traffic between user and corporate network.</span></div></div>
+  <div class="q-card"><div class="q-num-row"><span class="q-num">QA19</span><span class="q-text">What is a patch?</span></div><div class="answer-row"><span class="answer-check">&#10003;</span><span class="answer-text">Answer: A software update that fixes vulnerabilities or bugs.</span></div></div>
+  <div class="q-card"><div class="q-num-row"><span class="q-num">QA20</span><span class="q-text">Why must systems be patched regularly?</span></div><div class="answer-row"><span class="answer-check">&#10003;</span><span class="answer-text">Answer: To close known security weaknesses before attackers exploit them.</span></div></div>
+  <div class="q-card"><div class="q-num-row"><span class="q-num">QA21</span><span class="q-text">What is malware?</span></div><div class="answer-row"><span class="answer-check">&#10003;</span><span class="answer-text">Answer: Malicious software designed to damage, disrupt, or steal data.</span></div></div>
+  <div class="q-card"><div class="q-num-row"><span class="q-num">QA22</span><span class="q-text">How does a worm differ from a virus?</span></div><div class="answer-row"><span class="answer-check">&#10003;</span><span class="answer-text">Answer: A worm self-propagates; a virus needs a host file.</span></div></div>
+  <div class="q-card"><div class="q-num-row"><span class="q-num">QA23</span><span class="q-text">What is a botnet?</span></div><div class="answer-row"><span class="answer-check">&#10003;</span><span class="answer-text">Answer: A network of compromised devices controlled by an attacker.</span></div></div>
+  <div class="q-card"><div class="q-num-row"><span class="q-num">QA24</span><span class="q-text">What is DDoS?</span></div><div class="answer-row"><span class="answer-check">&#10003;</span><span class="answer-text">Answer: A distributed attack that floods a target and disrupts availability.</span></div></div>
+  <div class="q-card"><div class="q-num-row"><span class="q-num">QA25</span><span class="q-text">What does confidentiality mean?</span></div><div class="answer-row"><span class="answer-check">&#10003;</span><span class="answer-text">Answer: Information is accessible only to authorized users.</span></div></div>
+  <div class="q-card"><div class="q-num-row"><span class="q-num">QA26</span><span class="q-text">What does integrity mean?</span></div><div class="answer-row"><span class="answer-check">&#10003;</span><span class="answer-text">Answer: Information remains accurate and unaltered.</span></div></div>
+  <div class="q-card"><div class="q-num-row"><span class="q-num">QA27</span><span class="q-text">What does availability mean?</span></div><div class="answer-row"><span class="answer-check">&#10003;</span><span class="answer-text">Answer: Information and services are accessible when needed.</span></div></div>
+  <div class="q-card"><div class="q-num-row"><span class="q-num">QA28</span><span class="q-text">What is risk in information security?</span></div><div class="answer-row"><span class="answer-check">&#10003;</span><span class="answer-text">Answer: Likelihood and impact of a threat exploiting a vulnerability.</span></div></div>
+  <div class="q-card"><div class="q-num-row"><span class="q-num">QA29</span><span class="q-text">What is a vulnerability?</span></div><div class="answer-row"><span class="answer-check">&#10003;</span><span class="answer-text">Answer: A weakness in an asset or control that can be exploited.</span></div></div>
+  <div class="q-card"><div class="q-num-row"><span class="q-num">QA30</span><span class="q-text">What is a threat?</span></div><div class="answer-row"><span class="answer-check">&#10003;</span><span class="answer-text">Answer: A potential cause of harm to an asset or organization.</span></div></div>
+  <div class="q-card"><div class="q-num-row"><span class="q-num">QA31</span><span class="q-text">What is risk treatment?</span></div><div class="answer-row"><span class="answer-check">&#10003;</span><span class="answer-text">Answer: Choosing controls to avoid, reduce, transfer, or accept risk.</span></div></div>
+  <div class="q-card"><div class="q-num-row"><span class="q-num">QA32</span><span class="q-text">What is risk transfer?</span></div><div class="answer-row"><span class="answer-check">&#10003;</span><span class="answer-text">Answer: Shifting part of risk impact to another party, such as insurance.</span></div></div>
+  <div class="q-card"><div class="q-num-row"><span class="q-num">QA33</span><span class="q-text">What is risk avoidance?</span></div><div class="answer-row"><span class="answer-check">&#10003;</span><span class="answer-text">Answer: Stopping the activity that creates the risk.</span></div></div>
+  <div class="q-card"><div class="q-num-row"><span class="q-num">QA34</span><span class="q-text">What is residual risk?</span></div><div class="answer-row"><span class="answer-check">&#10003;</span><span class="answer-text">Answer: Remaining risk after controls are applied.</span></div></div>
+  <div class="q-card"><div class="q-num-row"><span class="q-num">QA35</span><span class="q-text">Why is security awareness training repeated regularly?</span></div><div class="answer-row"><span class="answer-check">&#10003;</span><span class="answer-text">Answer: To reinforce behavior and keep pace with evolving threats.</span></div></div>
+  <div class="q-card"><div class="q-num-row"><span class="q-num">QA36</span><span class="q-text">What is micro-learning in awareness programs?</span></div><div class="answer-row"><span class="answer-check">&#10003;</span><span class="answer-text">Answer: Short focused lessons delivered in small digestible units.</span></div></div>
+  <div class="q-card"><div class="q-num-row"><span class="q-num">QA37</span><span class="q-text">Why are phishing simulations useful?</span></div><div class="answer-row"><span class="answer-check">&#10003;</span><span class="answer-text">Answer: They provide realistic practice and identify behavior gaps.</span></div></div>
+  <div class="q-card"><div class="q-num-row"><span class="q-num">QA38</span><span class="q-text">What is a teachable moment in security training?</span></div><div class="answer-row"><span class="answer-check">&#10003;</span><span class="answer-text">Answer: Immediate guidance right after a risky action is observed.</span></div></div>
+  <div class="q-card"><div class="q-num-row"><span class="q-num">QA39</span><span class="q-text">How do leaderboards help when used correctly?</span></div><div class="answer-row"><span class="answer-check">&#10003;</span><span class="answer-text">Answer: They motivate engagement without shaming participants.</span></div></div>
+  <div class="q-card"><div class="q-num-row"><span class="q-num">QA40</span><span class="q-text">What is cyber resilience?</span></div><div class="answer-row"><span class="answer-check">&#10003;</span><span class="answer-text">Answer: The ability to continue operations during and after cyber attacks.</span></div></div>
+  <div class="q-card"><div class="q-num-row"><span class="q-num">QA41</span><span class="q-text">What is an incident response plan?</span></div><div class="answer-row"><span class="answer-check">&#10003;</span><span class="answer-text">Answer: A documented process for detecting, responding to, and recovering from incidents.</span></div></div>
+  <div class="q-card"><div class="q-num-row"><span class="q-num">QA42</span><span class="q-text">Why are backups essential against ransomware?</span></div><div class="answer-row"><span class="answer-check">&#10003;</span><span class="answer-text">Answer: Clean backups allow recovery without paying attackers.</span></div></div>
+  <div class="q-card"><div class="q-num-row"><span class="q-num">QA43</span><span class="q-text">What is the principle of need-to-know?</span></div><div class="answer-row"><span class="answer-check">&#10003;</span><span class="answer-text">Answer: Access is granted only when required for job duties.</span></div></div>
+  <div class="q-card"><div class="q-num-row"><span class="q-num">QA44</span><span class="q-text">What is shadow IT?</span></div><div class="answer-row"><span class="answer-check">&#10003;</span><span class="answer-text">Answer: Unapproved tools or services used outside official controls.</span></div></div>
+  <div class="q-card"><div class="q-num-row"><span class="q-num">QA45</span><span class="q-text">Why should USB devices be controlled?</span></div><div class="answer-row"><span class="answer-check">&#10003;</span><span class="answer-text">Answer: They can carry malware or enable data exfiltration.</span></div></div>
+  <div class="q-card"><div class="q-num-row"><span class="q-num">QA46</span><span class="q-text">What is secure disposal of information?</span></div><div class="answer-row"><span class="answer-check">&#10003;</span><span class="answer-text">Answer: Destroying paper and digital data so it cannot be recovered.</span></div></div>
+  <div class="q-card"><div class="q-num-row"><span class="q-num">QA47</span><span class="q-text">What is the purpose of security logging?</span></div><div class="answer-row"><span class="answer-check">&#10003;</span><span class="answer-text">Answer: To record events for detection, investigation, and auditing.</span></div></div>
+  <div class="q-card"><div class="q-num-row"><span class="q-num">QA48</span><span class="q-text">What is an acceptable use policy?</span></div><div class="answer-row"><span class="answer-check">&#10003;</span><span class="answer-text">Answer: Rules that define proper use of organizational systems and data.</span></div></div>
+  <div class="q-card"><div class="q-num-row"><span class="q-num">QA49</span><span class="q-text">Why is continuous monitoring needed in risk management?</span></div><div class="answer-row"><span class="answer-check">&#10003;</span><span class="answer-text">Answer: Risk conditions change continuously, so controls must be updated.</span></div></div>
+  <div class="q-card"><div class="q-num-row"><span class="q-num">QA50</span><span class="q-text">What is the ultimate goal of security awareness?</span></div><div class="answer-row"><span class="answer-check">&#10003;</span><span class="answer-text">Answer: Building secure daily behavior that protects people, data, and business.</span></div></div>
+</div>
+
+<div class="questions-section" style="margin-top: 24px;">`r`n  <div class="section-label">25 Matching Points</div>
+
+  <div class="q-card"><div class="q-num-row"><span class="q-num">M1</span><span class="q-text">Match term: Confidentiality</span></div><div class="answer-row"><span class="answer-check">&#10003;</span><span class="answer-text">Correct Match: Data is seen only by authorized users.</span></div></div>
+  <div class="q-card"><div class="q-num-row"><span class="q-num">M2</span><span class="q-text">Match term: Integrity</span></div><div class="answer-row"><span class="answer-check">&#10003;</span><span class="answer-text">Correct Match: Data remains accurate and unchanged.</span></div></div>
+  <div class="q-card"><div class="q-num-row"><span class="q-num">M3</span><span class="q-text">Match term: Availability</span></div><div class="answer-row"><span class="answer-check">&#10003;</span><span class="answer-text">Correct Match: Systems and data are accessible when needed.</span></div></div>
+  <div class="q-card"><div class="q-num-row"><span class="q-num">M4</span><span class="q-text">Match term: Phishing</span></div><div class="answer-row"><span class="answer-check">&#10003;</span><span class="answer-text">Correct Match: Deceptive message to steal credentials.</span></div></div>
+  <div class="q-card"><div class="q-num-row"><span class="q-num">M5</span><span class="q-text">Match term: Spear Phishing</span></div><div class="answer-row"><span class="answer-check">&#10003;</span><span class="answer-text">Correct Match: Personalized phishing targeting a specific victim.</span></div></div>
+  <div class="q-card"><div class="q-num-row"><span class="q-num">M6</span><span class="q-text">Match term: Malware</span></div><div class="answer-row"><span class="answer-check">&#10003;</span><span class="answer-text">Correct Match: Malicious software intended to cause harm.</span></div></div>
+  <div class="q-card"><div class="q-num-row"><span class="q-num">M7</span><span class="q-text">Match term: Ransomware</span></div><div class="answer-row"><span class="answer-check">&#10003;</span><span class="answer-text">Correct Match: Encrypts files and demands payment.</span></div></div>
+  <div class="q-card"><div class="q-num-row"><span class="q-num">M8</span><span class="q-text">Match term: Trojan</span></div><div class="answer-row"><span class="answer-check">&#10003;</span><span class="answer-text">Correct Match: Looks legitimate but performs malicious actions.</span></div></div>
+  <div class="q-card"><div class="q-num-row"><span class="q-num">M9</span><span class="q-text">Match term: Worm</span></div><div class="answer-row"><span class="answer-check">&#10003;</span><span class="answer-text">Correct Match: Self-replicates without a host file.</span></div></div>
+  <div class="q-card"><div class="q-num-row"><span class="q-num">M10</span><span class="q-text">Match term: Botnet</span></div><div class="answer-row"><span class="answer-check">&#10003;</span><span class="answer-text">Correct Match: Group of compromised devices controlled remotely.</span></div></div>
+  <div class="q-card"><div class="q-num-row"><span class="q-num">M11</span><span class="q-text">Match term: DDoS</span></div><div class="answer-row"><span class="answer-check">&#10003;</span><span class="answer-text">Correct Match: Multi-source flooding attack to disrupt service.</span></div></div>
+  <div class="q-card"><div class="q-num-row"><span class="q-num">M12</span><span class="q-text">Match term: Vulnerability</span></div><div class="answer-row"><span class="answer-check">&#10003;</span><span class="answer-text">Correct Match: Weakness that can be exploited by a threat.</span></div></div>
+  <div class="q-card"><div class="q-num-row"><span class="q-num">M13</span><span class="q-text">Match term: Threat</span></div><div class="answer-row"><span class="answer-check">&#10003;</span><span class="answer-text">Correct Match: Potential cause of an unwanted incident.</span></div></div>
+  <div class="q-card"><div class="q-num-row"><span class="q-num">M14</span><span class="q-text">Match term: Risk</span></div><div class="answer-row"><span class="answer-check">&#10003;</span><span class="answer-text">Correct Match: Likelihood and impact of exploitation.</span></div></div>
+  <div class="q-card"><div class="q-num-row"><span class="q-num">M15</span><span class="q-text">Match term: Risk Avoidance</span></div><div class="answer-row"><span class="answer-check">&#10003;</span><span class="answer-text">Correct Match: Eliminate the risky activity.</span></div></div>
+  <div class="q-card"><div class="q-num-row"><span class="q-num">M16</span><span class="q-text">Match term: Risk Transfer</span></div><div class="answer-row"><span class="answer-check">&#10003;</span><span class="answer-text">Correct Match: Shift part of risk to another party.</span></div></div>
+  <div class="q-card"><div class="q-num-row"><span class="q-num">M17</span><span class="q-text">Match term: Least Privilege</span></div><div class="answer-row"><span class="answer-check">&#10003;</span><span class="answer-text">Correct Match: Grant only minimum required access.</span></div></div>
+  <div class="q-card"><div class="q-num-row"><span class="q-num">M18</span><span class="q-text">Match term: Incident Response</span></div><div class="answer-row"><span class="answer-check">&#10003;</span><span class="answer-text">Correct Match: Process for detect, contain, and recover.</span></div></div>
+  <div class="q-card"><div class="q-num-row"><span class="q-num">M19</span><span class="q-text">Match term: Backup</span></div><div class="answer-row"><span class="answer-check">&#10003;</span><span class="answer-text">Correct Match: Recoverable copy of data for restoration.</span></div></div>
+  <div class="q-card"><div class="q-num-row"><span class="q-num">M20</span><span class="q-text">Match term: Encryption</span></div><div class="answer-row"><span class="answer-check">&#10003;</span><span class="answer-text">Correct Match: Convert data into unreadable form without key.</span></div></div>
+  <div class="q-card"><div class="q-num-row"><span class="q-num">M21</span><span class="q-text">Match term: Security Awareness</span></div><div class="answer-row"><span class="answer-check">&#10003;</span><span class="answer-text">Correct Match: Building secure behavior among employees.</span></div></div>
+  <div class="q-card"><div class="q-num-row"><span class="q-num">M22</span><span class="q-text">Match term: Micro-learning</span></div><div class="answer-row"><span class="answer-check">&#10003;</span><span class="answer-text">Correct Match: Short focused learning modules.</span></div></div>
+  <div class="q-card"><div class="q-num-row"><span class="q-num">M23</span><span class="q-text">Match term: Gamification</span></div><div class="answer-row"><span class="answer-check">&#10003;</span><span class="answer-text">Correct Match: Use game elements to increase engagement.</span></div></div>
+  <div class="q-card"><div class="q-num-row"><span class="q-num">M24</span><span class="q-text">Match term: Cyber Resilience</span></div><div class="answer-row"><span class="answer-check">&#10003;</span><span class="answer-text">Correct Match: Maintain operations during cyber attacks.</span></div></div>
+  <div class="q-card"><div class="q-num-row"><span class="q-num">M25</span><span class="q-text">Match term: Continuous Monitoring</span></div><div class="answer-row"><span class="answer-check">&#10003;</span><span class="answer-text">Correct Match: Ongoing tracking of risk and control effectiveness.</span></div></div>
+</div>
+
+
+
+<div class="level-header page-break">
+  <div class="level-badge">TF</div>
+  <div>
+    <h2>True/False Review</h2>
+    <p>Statements derived directly from MCQ training modules L1 to L6</p>
+  </div>
+</div>
+
+<div class="concepts-section">
+  <div class="section-label">Core Rules</div>
+  <div class="concepts-grid">
+    <div class="concept-card"><div class="concept-key">True / False Strategy</div><div class="concept-val">Assess the truth value of statements strictly based on the definitions in L1-L6.</div></div>
+  </div>
+</div>
+
+<div class="questions-section">
+  <div class="section-label">Practice Questions</div>
+
+  <div class="q-card">
+    <div class="q-num-row"><span class="q-num">Q1</span><span class="q-text">The primary goal of advanced security awareness training is to change employee security culture and behavior.</span></div>
+    <div class="options">
+      <div class="opt">A. True</div>
+      <div class="opt">B. False</div>
+    </div>
+    <div class="answer-row"><span class="answer-check">âœ“</span><span class="answer-text">Correct Answer: A</span></div>
+  </div>
+
+  <div class="q-card">
+    <div class="q-num-row"><span class="q-num">Q2</span><span class="q-text">Gamification uses points, badges, and leaderboards to make training a fun and competitive learning experience.</span></div>
+    <div class="options">
+      <div class="opt">A. True</div>
+      <div class="opt">B. False</div>
+    </div>
+    <div class="answer-row"><span class="answer-check">âœ“</span><span class="answer-text">Correct Answer: A</span></div>
+  </div>
+
+  <div class="q-card">
+    <div class="q-num-row"><span class="q-num">Q3</span><span class="q-text">A "teachable moment" in phishing simulations refers to instructing employees months after they click a simulated phishing link.</span></div>
+    <div class="options">
+      <div class="opt">A. True</div>
+      <div class="opt">B. False</div>
+    </div>
+    <div class="answer-row"><span class="answer-check">âœ“</span><span class="answer-text">Correct Answer: B</span></div>
+  </div>
+
+  <div class="q-card">
+    <div class="q-num-row"><span class="q-num">Q4</span><span class="q-text">Hover technology is used by employees to reveal the real hidden destination URL of a link before clicking it.</span></div>
+    <div class="options">
+      <div class="opt">A. True</div>
+      <div class="opt">B. False</div>
+    </div>
+    <div class="answer-row"><span class="answer-check">âœ“</span><span class="answer-text">Correct Answer: A</span></div>
+  </div>
+
+  <div class="q-card">
+    <div class="q-num-row"><span class="q-num">Q5</span><span class="q-text">Micro-learning modules are ineffective because they present small, easy-to-absorb doses of information.</span></div>
+    <div class="options">
+      <div class="opt">A. True</div>
+      <div class="opt">B. False</div>
+    </div>
+    <div class="answer-row"><span class="answer-check">âœ“</span><span class="answer-text">Correct Answer: B</span></div>
+  </div>
+
+  <div class="q-card">
+    <div class="q-num-row"><span class="q-num">Q6</span><span class="q-text">Spear phishing involves sending personalized, targeted messages to a specific individual using their own information.</span></div>
+    <div class="options">
+      <div class="opt">A. True</div>
+      <div class="opt">B. False</div>
+    </div>
+    <div class="answer-row"><span class="answer-check">âœ“</span><span class="answer-text">Correct Answer: A</span></div>
+  </div>
+
+  <div class="q-card">
+    <div class="q-num-row"><span class="q-num">Q7</span><span class="q-text">If you receive an unexpected file in an old chat with a trusted colleague, you should immediately open it without verifying.</span></div>
+    <div class="options">
+      <div class="opt">A. True</div>
+      <div class="opt">B. False</div>
+    </div>
+    <div class="answer-row"><span class="answer-check">âœ“</span><span class="answer-text">Correct Answer: B</span></div>
+  </div>
+
+  <div class="q-card">
+    <div class="q-num-row"><span class="q-num">Q8</span><span class="q-text">Serious games are designed primarily for educational purposes rather than pure entertainment.</span></div>
+    <div class="options">
+      <div class="opt">A. True</div>
+      <div class="opt">B. False</div>
+    </div>
+    <div class="answer-row"><span class="answer-check">âœ“</span><span class="answer-text">Correct Answer: A</span></div>
+  </div>
+
+  <div class="q-card">
+    <div class="q-num-row"><span class="q-num">Q9</span><span class="q-text">Leaderboards in gamified training should be used primarily to penalize and shame low-scoring employees.</span></div>
+    <div class="options">
+      <div class="opt">A. True</div>
+      <div class="opt">B. False</div>
+    </div>
+    <div class="answer-row"><span class="answer-check">âœ“</span><span class="answer-text">Correct Answer: B</span></div>
+  </div>
+
+  <div class="q-card">
+    <div class="q-num-row"><span class="q-num">Q10</span><span class="q-text">Flow in gamified training is achieved when there is a perfect balance between challenge and the user's skill level.</span></div>
+    <div class="options">
+      <div class="opt">A. True</div>
+      <div class="opt">B. False</div>
+    </div>
+    <div class="answer-row"><span class="answer-check">âœ“</span><span class="answer-text">Correct Answer: A</span></div>
+  </div>
+
+  <div class="q-card">
+    <div class="q-num-row"><span class="q-num">Q11</span><span class="q-text">Interactive storytelling improves learning by placing security concepts within a relatable narrative context.</span></div>
+    <div class="options">
+      <div class="opt">A. True</div>
+      <div class="opt">B. False</div>
+    </div>
+    <div class="answer-row"><span class="answer-check">âœ“</span><span class="answer-text">Correct Answer: A</span></div>
+  </div>
+
+  <div class="q-card">
+    <div class="q-num-row"><span class="q-num">Q12</span><span class="q-text">Simulation training is highly effective for practicing incident response and threat detection.</span></div>
+    <div class="options">
+      <div class="opt">A. True</div>
+      <div class="opt">B. False</div>
+    </div>
+    <div class="answer-row"><span class="answer-check">âœ“</span><span class="answer-text">Correct Answer: A</span></div>
+  </div>
+
+  <div class="q-card">
+    <div class="q-num-row"><span class="q-num">Q13</span><span class="q-text">Over-gamification can lead to employees focusing more on earning points than on the actual learning outcomes.</span></div>
+    <div class="options">
+      <div class="opt">A. True</div>
+      <div class="opt">B. False</div>
+    </div>
+    <div class="answer-row"><span class="answer-check">âœ“</span><span class="answer-text">Correct Answer: A</span></div>
+  </div>
+
+  <div class="q-card">
+    <div class="q-num-row"><span class="q-num">Q14</span><span class="q-text">The Kirkpatrick Model consists of four levels used for evaluating training programs: Reaction, Learning, Behavior, and Results.</span></div>
+    <div class="options">
+      <div class="opt">A. True</div>
+      <div class="opt">B. False</div>
+    </div>
+    <div class="answer-row"><span class="answer-check">âœ“</span><span class="answer-text">Correct Answer: A</span></div>
+  </div>
+
+  <div class="q-card">
+    <div class="q-num-row"><span class="q-num">Q15</span><span class="q-text">Level 1 (Reaction) of the Kirkpatrick Model evaluates actual on-the-job behavior changes of the employees.</span></div>
+    <div class="options">
+      <div class="opt">A. True</div>
+      <div class="opt">B. False</div>
+    </div>
+    <div class="answer-row"><span class="answer-check">âœ“</span><span class="answer-text">Correct Answer: B</span></div>
+  </div>
+
+  <div class="q-card">
+    <div class="q-num-row"><span class="q-num">Q16</span><span class="q-text">Level 4 (Results) of the Kirkpatrick Model measures the impact of training on organizational goals and business success.</span></div>
+    <div class="options">
+      <div class="opt">A. True</div>
+      <div class="opt">B. False</div>
+    </div>
+    <div class="answer-row"><span class="answer-check">âœ“</span><span class="answer-text">Correct Answer: A</span></div>
+  </div>
+
+  <div class="q-card">
+    <div class="q-num-row"><span class="q-num">Q17</span><span class="q-text">A high click-through rate in simulated phishing campaigns indicates high vulnerability to phishing attacks.</span></div>
+    <div class="options">
+      <div class="opt">A. True</div>
+      <div class="opt">B. False</div>
+    </div>
+    <div class="answer-row"><span class="answer-check">âœ“</span><span class="answer-text">Correct Answer: A</span></div>
+  </div>
+
+  <div class="q-card">
+    <div class="q-num-row"><span class="q-num">Q18</span><span class="q-text">The reporting rate measures the percentage of employees who report simulated phishing emails to the security team.</span></div>
+    <div class="options">
+      <div class="opt">A. True</div>
+      <div class="opt">B. False</div>
+    </div>
+    <div class="answer-row"><span class="answer-check">âœ“</span><span class="answer-text">Correct Answer: A</span></div>
+  </div>
+
+  <div class="q-card">
+    <div class="q-num-row"><span class="q-num">Q19</span><span class="q-text">Self-assessment surveys are more objective than technical logs and incident reports when measuring behavior change.</span></div>
+    <div class="options">
+      <div class="opt">A. True</div>
+      <div class="opt">B. False</div>
+    </div>
+    <div class="answer-row"><span class="answer-check">âœ“</span><span class="answer-text">Correct Answer: B</span></div>
+  </div>
+
+  <div class="q-card">
+    <div class="q-num-row"><span class="q-num">Q20</span><span class="q-text">Training ROI (Return on Investment) compares the cost of training against the financial benefits and risk reduction achieved.</span></div>
+    <div class="options">
+      <div class="opt">A. True</div>
+      <div class="opt">B. False</div>
+    </div>
+    <div class="answer-row"><span class="answer-check">âœ“</span><span class="answer-text">Correct Answer: A</span></div>
+  </div>
+
+  <div class="q-card">
+    <div class="q-num-row"><span class="q-num">Q21</span><span class="q-text">Information Risk is the likelihood that a threat will exploit a vulnerability and cause impact to an asset.</span></div>
+    <div class="options">
+      <div class="opt">A. True</div>
+      <div class="opt">B. False</div>
+    </div>
+    <div class="answer-row"><span class="answer-check">âœ“</span><span class="answer-text">Correct Answer: A</span></div>
+  </div>
+
+  <div class="q-card">
+    <div class="q-num-row"><span class="q-num">Q22</span><span class="q-text">An Asset in risk management is defined as anything that has no value to the organization.</span></div>
+    <div class="options">
+      <div class="opt">A. True</div>
+      <div class="opt">B. False</div>
+    </div>
+    <div class="answer-row"><span class="answer-check">âœ“</span><span class="answer-text">Correct Answer: B</span></div>
+  </div>
+
+  <div class="q-card">
+    <div class="q-num-row"><span class="q-num">Q23</span><span class="q-text">A Threat refers to any potential cause of an unwanted incident that may harm an asset or organization.</span></div>
+    <div class="options">
+      <div class="opt">A. True</div>
+      <div class="opt">B. False</div>
+    </div>
+    <div class="answer-row"><span class="answer-check">âœ“</span><span class="answer-text">Correct Answer: A</span></div>
+  </div>
+
+  <div class="q-card">
+    <div class="q-num-row"><span class="q-num">Q24</span><span class="q-text">A Vulnerability is a weakness in an asset or control that can be exploited by a threat.</span></div>
+    <div class="options">
+      <div class="opt">A. True</div>
+      <div class="opt">B. False</div>
+    </div>
+    <div class="answer-row"><span class="answer-check">âœ“</span><span class="answer-text">Correct Answer: A</span></div>
+  </div>
+
+  <div class="q-card">
+    <div class="q-num-row"><span class="q-num">Q25</span><span class="q-text">Risk Analysis involves understanding the nature, sources, and consequences of identified risks.</span></div>
+    <div class="options">
+      <div class="opt">A. True</div>
+      <div class="opt">B. False</div>
+    </div>
+    <div class="answer-row"><span class="answer-check">âœ“</span><span class="answer-text">Correct Answer: A</span></div>
+  </div>
+
+  <div class="q-card">
+    <div class="q-num-row"><span class="q-num">Q26</span><span class="q-text">Asset identification is the step that involves identifying valuable organizational resources.</span></div>
+    <div class="options">
+      <div class="opt">A. True</div>
+      <div class="opt">B. False</div>
+    </div>
+    <div class="answer-row"><span class="answer-check">âœ“</span><span class="answer-text">Correct Answer: A</span></div>
+  </div>
+
+  <div class="q-card">
+    <div class="q-num-row"><span class="q-num">Q27</span><span class="q-text">Risk is typically evaluated based on cost and time rather than likelihood and impact.</span></div>
+    <div class="options">
+      <div class="opt">A. True</div>
+      <div class="opt">B. False</div>
+    </div>
+    <div class="answer-row"><span class="answer-check">âœ“</span><span class="answer-text">Correct Answer: B</span></div>
+  </div>
+
+  <div class="q-card">
+    <div class="q-num-row"><span class="q-num">Q28</span><span class="q-text">The Risk Management Framework (RMF) was developed by the National Institute of Standards and Technology (NIST).</span></div>
+    <div class="options">
+      <div class="opt">A. True</div>
+      <div class="opt">B. False</div>
+    </div>
+    <div class="answer-row"><span class="answer-check">âœ“</span><span class="answer-text">Correct Answer: A</span></div>
+  </div>
+
+  <div class="q-card">
+    <div class="q-num-row"><span class="q-num">Q29</span><span class="q-text">ISO/IEC 27005 provides guidelines for information security risk management.</span></div>
+    <div class="options">
+      <div class="opt">A. True</div>
+      <div class="opt">B. False</div>
+    </div>
+    <div class="answer-row"><span class="answer-check">âœ“</span><span class="answer-text">Correct Answer: A</span></div>
+  </div>
+
+  <div class="q-card">
+    <div class="q-num-row"><span class="q-num">Q30</span><span class="q-text">Qualitative Risk Analysis is mainly based on expert judgment and descriptive terms rather than mathematical formulas.</span></div>
+    <div class="options">
+      <div class="opt">A. True</div>
+      <div class="opt">B. False</div>
+    </div>
+    <div class="answer-row"><span class="answer-check">âœ“</span><span class="answer-text">Correct Answer: A</span></div>
+  </div>
+
+  <div class="q-card">
+    <div class="q-num-row"><span class="q-num">Q31</span><span class="q-text">In Quantitative Risk Analysis, Annual Loss Expectancy (ALE) is calculated using the formula: ALE = SLE Ã— ARO.</span></div>
+    <div class="options">
+      <div class="opt">A. True</div>
+      <div class="opt">B. False</div>
+    </div>
+    <div class="answer-row"><span class="answer-check">âœ“</span><span class="answer-text">Correct Answer: A</span></div>
+  </div>
+
+  <div class="q-card">
+    <div class="q-num-row"><span class="q-num">Q32</span><span class="q-text">In a Risk Matrix, "High Likelihood + High Impact" represents a Low Risk rating.</span></div>
+    <div class="options">
+      <div class="opt">A. True</div>
+      <div class="opt">B. False</div>
+    </div>
+    <div class="answer-row"><span class="answer-check">âœ“</span><span class="answer-text">Correct Answer: B</span></div>
+  </div>
+
+  <div class="q-card">
+    <div class="q-num-row"><span class="q-num">Q33</span><span class="q-text">The risk treatment strategy of Avoidance eliminates the source of risk or stops the risky activity.</span></div>
+    <div class="options">
+      <div class="opt">A. True</div>
+      <div class="opt">B. False</div>
+    </div>
+    <div class="answer-row"><span class="answer-check">âœ“</span><span class="answer-text">Correct Answer: A</span></div>
+  </div>
+
+  <div class="q-card">
+    <div class="q-num-row"><span class="q-num">Q34</span><span class="q-text">Purchasing cyber insurance is a common example of Risk Transfer.</span></div>
+    <div class="options">
+      <div class="opt">A. True</div>
+      <div class="opt">B. False</div>
+    </div>
+    <div class="answer-row"><span class="answer-check">âœ“</span><span class="answer-text">Correct Answer: A</span></div>
+  </div>
+
+  <div class="q-card">
+    <div class="q-num-row"><span class="q-num">Q35</span><span class="q-text">Intrusion Detection Systems (IDS) are classified as preventive controls.</span></div>
+    <div class="options">
+      <div class="opt">A. True</div>
+      <div class="opt">B. False</div>
+    </div>
+    <div class="answer-row"><span class="answer-check">âœ“</span><span class="answer-text">Correct Answer: B</span></div>
+  </div>
+
+  <div class="q-card">
+    <div class="q-num-row"><span class="q-num">Q36</span><span class="q-text">Continuous Monitoring is important in risk management to track changes and update risk controls dynamically.</span></div>
+    <div class="options">
+      <div class="opt">A. True</div>
+      <div class="opt">B. False</div>
+    </div>
+    <div class="answer-row"><span class="answer-check">âœ“</span><span class="answer-text">Correct Answer: A</span></div>
+  </div>
+
+  <div class="q-card">
+    <div class="q-num-row"><span class="q-num">Q37</span><span class="q-text">In modern digital ecosystems, Information Risk Management is considered part of integrated strategic governance.</span></div>
+    <div class="options">
+      <div class="opt">A. True</div>
+      <div class="opt">B. False</div>
+    </div>
+    <div class="answer-row"><span class="answer-check">âœ“</span><span class="answer-text">Correct Answer: A</span></div>
+  </div>
+
+  <div class="q-card">
+    <div class="q-num-row"><span class="q-num">Q38</span><span class="q-text">Security focuses on preventing attacks, while Cyber Resilience focuses on ensuring business operations continue even during an active attack.</span></div>
+    <div class="options">
+      <div class="opt">A. True</div>
+      <div class="opt">B. False</div>
+    </div>
+    <div class="answer-row"><span class="answer-check">âœ“</span><span class="answer-text">Correct Answer: A</span></div>
+  </div>
+
+  <div class="q-card">
+    <div class="q-num-row"><span class="q-num">Q39</span><span class="q-text">Attack Graphs are used to represent attack paths and identify possible intrusion routes.</span></div>
+    <div class="options">
+      <div class="opt">A. True</div>
+      <div class="opt">B. False</div>
+    </div>
+    <div class="answer-row"><span class="answer-check">âœ“</span><span class="answer-text">Correct Answer: A</span></div>
+  </div>
+
+  <div class="q-card">
+    <div class="q-num-row"><span class="q-num">Q40</span><span class="q-text">Bayesian Networks are applied in probabilistic reasoning and dynamic risk updates in complex risk environments.</span></div>
+    <div class="options">
+      <div class="opt">A. True</div>
+      <div class="opt">B. False</div>
+    </div>
+    <div class="answer-row"><span class="answer-check">âœ“</span><span class="answer-text">Correct Answer: A</span></div>
+  </div>
+</div>
+
+
+<div class="level-header page-break">
+  <div class="level-badge">FB</div>
+  <div>
+    <h2>Fill in the Blank Review</h2>
+    <p>35 key cybersecurity terms from practical awareness scenarios</p>
+  </div>
+</div>
+
+<div class="concepts-section">
+  <div class="section-label">Core Rules</div>
+  <div class="concepts-grid">
+    <div class="concept-card"><div class="concept-key">Fill in the Blank Strategy</div><div class="concept-val">Identify the missing keyword that best completes each security statement.</div></div>
+  </div>
+</div>
+
+<div class="questions-section">
+  <div class="section-label">Practice Questions</div>
+
+  <div class="q-card"><div class="q-num-row"><span class="q-num">FB1</span><span class="q-text">A phishing message usually tries to create a sense of __________.</span></div><div class="options"><div class="opt">A. urgency</div><div class="opt">B. curiosity</div></div><div class="answer-row"><span class="answer-check">&#10003;</span><span class="answer-text">Correct Answer: A</span></div></div>
+  <div class="q-card"><div class="q-num-row"><span class="q-num">FB2</span><span class="q-text">The process of verifying identity using two or more factors is called __________ authentication.</span></div><div class="options"><div class="opt">A. multi-factor</div><div class="opt">B. single-factor</div></div><div class="answer-row"><span class="answer-check">&#10003;</span><span class="answer-text">Correct Answer: A</span></div></div>
+  <div class="q-card"><div class="q-num-row"><span class="q-num">FB3</span><span class="q-text">Before clicking a link, users should __________ over it to inspect the URL.</span></div><div class="options"><div class="opt">A. hover</div><div class="opt">B. click</div></div><div class="answer-row"><span class="answer-check">&#10003;</span><span class="answer-text">Correct Answer: A</span></div></div>
+  <div class="q-card"><div class="q-num-row"><span class="q-num">FB4</span><span class="q-text">Software updates that fix security bugs are called __________.</span></div><div class="options"><div class="opt">A. patches</div><div class="opt">B. backups</div></div><div class="answer-row"><span class="answer-check">&#10003;</span><span class="answer-text">Correct Answer: A</span></div></div>
+  <div class="q-card"><div class="q-num-row"><span class="q-num">FB5</span><span class="q-text">Ransomware often encrypts files and asks for a __________.</span></div><div class="options"><div class="opt">A. ransom</div><div class="opt">B. reward</div></div><div class="answer-row"><span class="answer-check">&#10003;</span><span class="answer-text">Correct Answer: A</span></div></div>
+  <div class="q-card"><div class="q-num-row"><span class="q-num">FB6</span><span class="q-text">The CIA triad stands for confidentiality, integrity, and __________.</span></div><div class="options"><div class="opt">A. availability</div><div class="opt">B. anonymity</div></div><div class="answer-row"><span class="answer-check">&#10003;</span><span class="answer-text">Correct Answer: A</span></div></div>
+  <div class="q-card"><div class="q-num-row"><span class="q-num">FB7</span><span class="q-text">A weakness that can be exploited by a threat is a __________.</span></div><div class="options"><div class="opt">A. vulnerability</div><div class="opt">B. safeguard</div></div><div class="answer-row"><span class="answer-check">&#10003;</span><span class="answer-text">Correct Answer: A</span></div></div>
+  <div class="q-card"><div class="q-num-row"><span class="q-num">FB8</span><span class="q-text">A potential cause of harm to an asset is called a __________.</span></div><div class="options"><div class="opt">A. threat</div><div class="opt">B. asset</div></div><div class="answer-row"><span class="answer-check">&#10003;</span><span class="answer-text">Correct Answer: A</span></div></div>
+  <div class="q-card"><div class="q-num-row"><span class="q-num">FB9</span><span class="q-text">Risk is commonly evaluated by likelihood and __________.</span></div><div class="options"><div class="opt">A. impact</div><div class="opt">B. speed</div></div><div class="answer-row"><span class="answer-check">&#10003;</span><span class="answer-text">Correct Answer: A</span></div></div>
+  <div class="q-card"><div class="q-num-row"><span class="q-num">FB10</span><span class="q-text">Limiting user rights to only what is needed follows the principle of least __________.</span></div><div class="options"><div class="opt">A. privilege</div><div class="opt">B. visibility</div></div><div class="answer-row"><span class="answer-check">&#10003;</span><span class="answer-text">Correct Answer: A</span></div></div>
+  <div class="q-card"><div class="q-num-row"><span class="q-num">FB11</span><span class="q-text">A network of attacker-controlled infected devices is called a __________.</span></div><div class="options"><div class="opt">A. botnet</div><div class="opt">B. firewall</div></div><div class="answer-row"><span class="answer-check">&#10003;</span><span class="answer-text">Correct Answer: A</span></div></div>
+  <div class="q-card"><div class="q-num-row"><span class="q-num">FB12</span><span class="q-text">A targeted phishing attack against one person is called __________ phishing.</span></div><div class="options"><div class="opt">A. spear</div><div class="opt">B. broad</div></div><div class="answer-row"><span class="answer-check">&#10003;</span><span class="answer-text">Correct Answer: A</span></div></div>
+  <div class="q-card"><div class="q-num-row"><span class="q-num">FB13</span><span class="q-text">The best response to a suspicious message is to __________ it to security.</span></div><div class="options"><div class="opt">A. report</div><div class="opt">B. forward</div></div><div class="answer-row"><span class="answer-check">&#10003;</span><span class="answer-text">Correct Answer: A</span></div></div>
+  <div class="q-card"><div class="q-num-row"><span class="q-num">FB14</span><span class="q-text">A controlled segment between internal network and internet is called a __________.</span></div><div class="options"><div class="opt">A. DMZ</div><div class="opt">B. VLAN</div></div><div class="answer-row"><span class="answer-check">&#10003;</span><span class="answer-text">Correct Answer: A</span></div></div>
+  <div class="q-card"><div class="q-num-row"><span class="q-num">FB15</span><span class="q-text">A backup that is not reachable from production systems is often called __________ backup.</span></div><div class="options"><div class="opt">A. offline</div><div class="opt">B. shared</div></div><div class="answer-row"><span class="answer-check">&#10003;</span><span class="answer-text">Correct Answer: A</span></div></div>
+  <div class="q-card"><div class="q-num-row"><span class="q-num">FB16</span><span class="q-text">A malicious program disguised as legitimate software is a __________.</span></div><div class="options"><div class="opt">A. Trojan</div><div class="opt">B. patch</div></div><div class="answer-row"><span class="answer-check">&#10003;</span><span class="answer-text">Correct Answer: A</span></div></div>
+  <div class="q-card"><div class="q-num-row"><span class="q-num">FB17</span><span class="q-text">An event that may violate security policy is a security __________.</span></div><div class="options"><div class="opt">A. incident</div><div class="opt">B. routine</div></div><div class="answer-row"><span class="answer-check">&#10003;</span><span class="answer-text">Correct Answer: A</span></div></div>
+  <div class="q-card"><div class="q-num-row"><span class="q-num">FB18</span><span class="q-text">Employee behavior change is the main objective of security __________ programs.</span></div><div class="options"><div class="opt">A. awareness</div><div class="opt">B. entertainment</div></div><div class="answer-row"><span class="answer-check">&#10003;</span><span class="answer-text">Correct Answer: A</span></div></div>
+  <div class="q-card"><div class="q-num-row"><span class="q-num">FB19</span><span class="q-text">Short focused lessons are known as __________ learning.</span></div><div class="options"><div class="opt">A. micro</div><div class="opt">B. macro</div></div><div class="answer-row"><span class="answer-check">&#10003;</span><span class="answer-text">Correct Answer: A</span></div></div>
+  <div class="q-card"><div class="q-num-row"><span class="q-num">FB20</span><span class="q-text">Points and badges in training are part of __________.</span></div><div class="options"><div class="opt">A. gamification</div><div class="opt">B. virtualization</div></div><div class="answer-row"><span class="answer-check">&#10003;</span><span class="answer-text">Correct Answer: A</span></div></div>
+  <div class="q-card"><div class="q-num-row"><span class="q-num">FB21</span><span class="q-text">A quick lock shortcut protects your active __________ when stepping away.</span></div><div class="options"><div class="opt">A. session</div><div class="opt">B. monitor</div></div><div class="answer-row"><span class="answer-check">&#10003;</span><span class="answer-text">Correct Answer: A</span></div></div>
+  <div class="q-card"><div class="q-num-row"><span class="q-num">FB22</span><span class="q-text">Keeping logs helps with detection, investigation, and __________.</span></div><div class="options"><div class="opt">A. auditing</div><div class="opt">B. decoration</div></div><div class="answer-row"><span class="answer-check">&#10003;</span><span class="answer-text">Correct Answer: A</span></div></div>
+  <div class="q-card"><div class="q-num-row"><span class="q-num">FB23</span><span class="q-text">Unauthorized software use inside an organization is often called __________ IT.</span></div><div class="options"><div class="opt">A. shadow</div><div class="opt">B. official</div></div><div class="answer-row"><span class="answer-check">&#10003;</span><span class="answer-text">Correct Answer: A</span></div></div>
+  <div class="q-card"><div class="q-num-row"><span class="q-num">FB24</span><span class="q-text">In risk treatment, buying cyber insurance is a form of risk __________.</span></div><div class="options"><div class="opt">A. transfer</div><div class="opt">B. acceptance</div></div><div class="answer-row"><span class="answer-check">&#10003;</span><span class="answer-text">Correct Answer: A</span></div></div>
+  <div class="q-card"><div class="q-num-row"><span class="q-num">FB25</span><span class="q-text">Stopping a risky process entirely is risk __________.</span></div><div class="options"><div class="opt">A. avoidance</div><div class="opt">B. mitigation</div></div><div class="answer-row"><span class="answer-check">&#10003;</span><span class="answer-text">Correct Answer: A</span></div></div>
+  <div class="q-card"><div class="q-num-row"><span class="q-num">FB26</span><span class="q-text">A statement of acceptable system behavior is called __________ use policy.</span></div><div class="options"><div class="opt">A. acceptable</div><div class="opt">B. optional</div></div><div class="answer-row"><span class="answer-check">&#10003;</span><span class="answer-text">Correct Answer: A</span></div></div>
+  <div class="q-card"><div class="q-num-row"><span class="q-num">FB27</span><span class="q-text">Making data unreadable without a key is called __________.</span></div><div class="options"><div class="opt">A. encryption</div><div class="opt">B. compression</div></div><div class="answer-row"><span class="answer-check">&#10003;</span><span class="answer-text">Correct Answer: A</span></div></div>
+  <div class="q-card"><div class="q-num-row"><span class="q-num">FB28</span><span class="q-text">A proactive plan for restoring operations after an incident is __________ plan.</span></div><div class="options"><div class="opt">A. recovery</div><div class="opt">B. marketing</div></div><div class="answer-row"><span class="answer-check">&#10003;</span><span class="answer-text">Correct Answer: A</span></div></div>
+  <div class="q-card"><div class="q-num-row"><span class="q-num">FB29</span><span class="q-text">Reducing attack surface starts with removing unnecessary __________.</span></div><div class="options"><div class="opt">A. services</div><div class="opt">B. passwords</div></div><div class="answer-row"><span class="answer-check">&#10003;</span><span class="answer-text">Correct Answer: A</span></div></div>
+  <div class="q-card"><div class="q-num-row"><span class="q-num">FB30</span><span class="q-text">Verification by phone for a suspicious request is an __________ channel check.</span></div><div class="options"><div class="opt">A. out-of-band</div><div class="opt">B. inline</div></div><div class="answer-row"><span class="answer-check">&#10003;</span><span class="answer-text">Correct Answer: A</span></div></div>
+  <div class="q-card"><div class="q-num-row"><span class="q-num">FB31</span><span class="q-text">A measure of user reports in phishing simulation is the __________ rate.</span></div><div class="options"><div class="opt">A. reporting</div><div class="opt">B. ignoring</div></div><div class="answer-row"><span class="answer-check">&#10003;</span><span class="answer-text">Correct Answer: A</span></div></div>
+  <div class="q-card"><div class="q-num-row"><span class="q-num">FB32</span><span class="q-text">In awareness metrics, a high click rate usually indicates high __________.</span></div><div class="options"><div class="opt">A. vulnerability</div><div class="opt">B. resilience</div></div><div class="answer-row"><span class="answer-check">&#10003;</span><span class="answer-text">Correct Answer: A</span></div></div>
+  <div class="q-card"><div class="q-num-row"><span class="q-num">FB33</span><span class="q-text">A control that identifies suspicious activity but does not block it is __________ control.</span></div><div class="options"><div class="opt">A. detective</div><div class="opt">B. preventive</div></div><div class="answer-row"><span class="answer-check">&#10003;</span><span class="answer-text">Correct Answer: A</span></div></div>
+  <div class="q-card"><div class="q-num-row"><span class="q-num">FB34</span><span class="q-text">Business continuity focuses on keeping critical __________ running during disruption.</span></div><div class="options"><div class="opt">A. operations</div><div class="opt">B. decorations</div></div><div class="answer-row"><span class="answer-check">&#10003;</span><span class="answer-text">Correct Answer: A</span></div></div>
+  <div class="q-card"><div class="q-num-row"><span class="q-num">FB35</span><span class="q-text">Security culture improves when safe behavior is practiced __________.</span></div><div class="options"><div class="opt">A. consistently</div><div class="opt">B. rarely</div></div><div class="answer-row"><span class="answer-check">&#10003;</span><span class="answer-text">Correct Answer: A</span></div></div>
+</div>
 </div>
 <script>
 (() => {
@@ -1657,7 +2320,7 @@
   document.body.classList.add("quiz-ready");
   const THEME_STORAGE_KEY = "security_awareness_quiz_theme";
   const DEFAULT_EXAM_COUNT = Math.min(10, bank.length);
-  const AUTO_NEXT_DELAY_MS = 350;
+  const AUTO_NEXT_DELAY_MS = 4000;
   const prefersDarkQuery = window.matchMedia ? window.matchMedia("(prefers-color-scheme: dark)") : null;
   const prefersReducedMotionQuery = window.matchMedia ? window.matchMedia("(prefers-reduced-motion: reduce)") : null;
   let hasManualTheme = false;
@@ -1676,6 +2339,20 @@
     options: shuffle(q.options.map((opt) => ({ ...opt })))
   });
 
+  // Get all unique levels dynamically and sort them
+  const uniqueLevels = [];
+  const levelMap = new Map();
+  bank.forEach((q) => {
+    if (!levelMap.has(q.levelBadge)) {
+      levelMap.set(q.levelBadge, q.levelTitle);
+      uniqueLevels.push({
+        badge: q.levelBadge,
+        title: q.levelTitle
+      });
+    }
+  });
+  // Keep the original document order (L1..L6, EX, TF, FB) instead of alphabetic sorting.
+
   const state = {
     mode: "intro",
     questions: [],
@@ -1684,7 +2361,8 @@
     selected: null,
     answered: false,
     theme: "light",
-    examCount: DEFAULT_EXAM_COUNT,
+    examCount: uniqueLevels.length * 10,
+    selectedLevels: uniqueLevels.map((l) => l.badge),
     autoAdvanceTimer: null,
     resultRainArmed: false,
     rainCleanupTimer: null
@@ -1717,11 +2395,11 @@
     const isNarrow = window.innerWidth < 760;
     const dropCount = isNarrow ? 36 : 64;
     const labels = [
-      { cls: "completion", text: "🏁 Completion Bulletin" },
+      { cls: "completion", text: "ðŸ Completion Bulletin" },
       { cls: performanceBulletin.cls, text: `${performanceBulletin.icon} ${performanceBulletin.title}` },
-      { cls: performanceBulletin.cls, text: "🎉 Quiz Completed" },
-      { cls: "completion", text: "✨ Achievement" },
-      { cls: "completion", text: "📣 Great Finish" }
+      { cls: performanceBulletin.cls, text: "ðŸŽ‰ Quiz Completed" },
+      { cls: "completion", text: "âœ¨ Achievement" },
+      { cls: "completion", text: "ðŸ“£ Great Finish" }
     ];
 
     for (let i = 0; i < dropCount; i += 1) {
@@ -1747,10 +2425,10 @@
     }, 4600);
   };
 
-  const clampExamCount = (value) => {
+  const clampExamCount = (value, maxLimit = bank.length) => {
     const parsed = Number.parseInt(value, 10);
     if (!Number.isFinite(parsed)) return state.examCount;
-    return Math.max(1, Math.min(bank.length, parsed));
+    return Math.max(1, Math.min(maxLimit, parsed));
   };
 
   const getStoredTheme = () => {
@@ -1805,12 +2483,40 @@
     </button>
   `;
 
+  const getBalancedQuestions = (selectedLevels, count) => {
+    const groups = {};
+    for (const lvl of selectedLevels) {
+      groups[lvl] = shuffle(bank.filter((q) => q.levelBadge === lvl));
+    }
+    
+    const selected = [];
+    const lvlList = [...selectedLevels];
+    if (lvlList.length === 0) return [];
+    
+    let index = 0;
+    while (selected.length < count) {
+      const activeLevels = lvlList.filter((lvl) => groups[lvl].length > 0);
+      if (activeLevels.length === 0) break;
+      
+      const lvl = activeLevels[index % activeLevels.length];
+      selected.push(groups[lvl].shift());
+      index++;
+    }
+    
+    return shuffle(selected);
+  };
+
   const startQuiz = () => {
     clearAutoAdvanceTimer();
     clearResultRain();
-    state.examCount = clampExamCount(state.examCount);
+    const filteredBank = bank.filter((q) => state.selectedLevels.includes(q.levelBadge));
+    if (filteredBank.length === 0) {
+      alert("Please select at least one lecture to start!");
+      return;
+    }
+    state.examCount = Math.max(1, Math.min(filteredBank.length, state.examCount));
     state.mode = "quiz";
-    state.questions = shuffle(bank).slice(0, state.examCount).map(cloneQuestion);
+    state.questions = getBalancedQuestions(state.selectedLevels, state.examCount).map(cloneQuestion);
     state.current = 0;
     state.score = 0;
     state.selected = null;
@@ -1852,6 +2558,29 @@
   };
 
   const renderIntro = () => {
+    const filteredBank = bank.filter((q) => state.selectedLevels.includes(q.levelBadge));
+    const maxQuestionsAvailable = filteredBank.length;
+
+    if (state.examCount > maxQuestionsAvailable) {
+      state.examCount = maxQuestionsAvailable;
+    }
+    if (state.examCount <= 0 && maxQuestionsAvailable > 0) {
+      state.examCount = Math.min(10, maxQuestionsAvailable);
+    }
+
+    const levelsHtml = uniqueLevels.map((l) => {
+      const isSelected = state.selectedLevels.includes(l.badge);
+      const levelQuestionsCount = bank.filter((q) => q.levelBadge === l.badge).length;
+      return `
+        <div class="level-selector-item ${isSelected ? "selected" : ""}" data-level="${l.badge}">
+          <div class="level-chk-indicator">âœ“</div>
+          <span class="level-badge-lbl">${l.badge}</span>
+          <span class="level-title-lbl" title="${l.title}">${l.title}</span>
+          <span class="meta-chip" style="margin-inline-start:auto; font-size:11px; padding:3px 6px;">${levelQuestionsCount} Qs</span>
+        </div>
+      `;
+    }).join("");
+
     quizRoot.innerHTML = `
       <div class="quiz-shell">
         <div class="quiz-head">
@@ -1860,26 +2589,39 @@
             ${renderThemeToggle()}
           </div>
           <h1 class="quiz-title">Security Awareness Interactive Quiz</h1>
-          <p class="quiz-desc">Upgraded layout, better interactions, and automatic random question order in every run.</p>
         </div>
         <div class="quiz-body">
           <div class="stats-grid">
-            <div class="stat-box"><span class="stat-label">Questions</span><span class="stat-value">${bank.length}</span></div>
-            <div class="stat-box"><span class="stat-label">Mode</span><span class="stat-value">Interactive Training</span></div>
+            <div class="stat-box"><span class="stat-label">Total Questions</span><span class="stat-value">${bank.length}</span></div>
+            <div class="stat-box"><span class="stat-label">Filtered Questions</span><span class="stat-value">${maxQuestionsAvailable}</span></div>
             <div class="stat-box"><span class="stat-label">Order</span><span class="stat-value">Auto Randomized</span></div>
           </div>
-          <div class="quiz-config">
-            <label for="exam-count">How many questions in this exam?</label>
-            <input id="exam-count" data-action="exam-count" type="number" min="1" max="${bank.length}" step="1" value="${state.examCount}">
-            <small>Choose from 1 to ${bank.length}. You will get random questions each time.</small>
+
+          <div class="level-selector-section">
+            <h3>
+              <span>Select Lectures</span>
+              <div class="level-select-actions">
+                <button type="button" class="level-select-action-btn" data-action="select-all">Select All</button>
+                <button type="button" class="level-select-action-btn" data-action="deselect-all">Deselect All</button>
+              </div>
+            </h3>
+            <div class="level-selector-grid">
+              ${levelsHtml}
+            </div>
           </div>
-          <div class="quiz-actions">
-            <button class="quiz-btn primary" data-action="start">Start Quiz</button>
+
+          <div class="quiz-config" style="margin-top: 24px;">
+            <label for="exam-count">How many questions would you like?</label>
+            <input id="exam-count" data-action="exam-count" type="number" min="1" max="${maxQuestionsAvailable}" step="1" value="${state.examCount}" ${maxQuestionsAvailable === 0 ? "disabled" : ""}>
+            <small style="display: block; margin-top: 8px;">Choose between 1 and ${maxQuestionsAvailable} (based on your selection above).</small>
+          </div>
+
+          <div class="quiz-actions" style="margin-top: 28px; justify-content: center; width: 100%;">
+            <button class="quiz-btn primary" data-action="start" style="width: 100%; max-width: 320px;" ${maxQuestionsAvailable === 0 ? "disabled" : ""}>Start Quiz</button>
           </div>
         </div>
       </div>
     `;
-
   };
 
   const renderQuiz = () => {
@@ -1955,10 +2697,10 @@
       percent >= 50 ? "Fair result. Review key concepts and retry." :
       "Retry after a quick concept review.";
     const performanceBulletin =
-      percent >= 85 ? { cls: "win", icon: "🏆", title: "Win Bulletin", text: "Outstanding performance in this quiz." } :
-      percent >= 70 ? { cls: "good", icon: "✅", title: "Great Bulletin", text: "Strong score with small room to improve." } :
-      percent >= 50 ? { cls: "review", icon: "📘", title: "Review Bulletin", text: "Fair result. A short review will boost your score." } :
-      { cls: "retry", icon: "🔁", title: "Retry Bulletin", text: "Try again after a quick review." };
+      percent >= 85 ? { cls: "win", icon: "ðŸ†", title: "Win Bulletin", text: "Outstanding performance in this quiz." } :
+      percent >= 70 ? { cls: "good", icon: "âœ…", title: "Great Bulletin", text: "Strong score with small room to improve." } :
+      percent >= 50 ? { cls: "review", icon: "ðŸ“˜", title: "Review Bulletin", text: "Fair result. A short review will boost your score." } :
+      { cls: "retry", icon: "ðŸ”", title: "Retry Bulletin", text: "Try again after a quick review." };
 
     quizRoot.innerHTML = `
       <div class="quiz-shell">
@@ -1975,7 +2717,7 @@
           <p class="result-sub">Score: <strong>${percent}%</strong><br>${message}</p>
           <div class="result-bulletins">
             <div class="result-bulletin completion">
-              <div class="result-bulletin-title"><span class="result-bulletin-icon">🏁</span>Completion Bulletin</div>
+              <div class="result-bulletin-title"><span class="result-bulletin-icon">ðŸ</span>Completion Bulletin</div>
               <span>All quiz questions were completed successfully.</span>
             </div>
             <div class="result-bulletin ${performanceBulletin.cls}">
@@ -2009,6 +2751,19 @@
   };
 
   quizRoot.addEventListener("click", (event) => {
+    const levelItem = event.target.closest(".level-selector-item");
+    if (levelItem) {
+      const level = levelItem.getAttribute("data-level");
+      if (state.selectedLevels.includes(level)) {
+        state.selectedLevels = state.selectedLevels.filter((l) => l !== level);
+      } else {
+        state.selectedLevels.push(level);
+      }
+      state.examCount = state.selectedLevels.length * 10;
+      render();
+      return;
+    }
+
     const target = event.target.closest("button");
     if (!target) return;
 
@@ -2020,9 +2775,24 @@
       return;
     }
 
+    if (action === "select-all") {
+      state.selectedLevels = uniqueLevels.map((l) => l.badge);
+      state.examCount = state.selectedLevels.length * 10;
+      render();
+      return;
+    }
+
+    if (action === "deselect-all") {
+      state.selectedLevels = [];
+      state.examCount = 0;
+      render();
+      return;
+    }
+
     if (action === "start") {
       const countInput = quizRoot.querySelector('input[data-action="exam-count"]');
-      if (countInput) state.examCount = clampExamCount(countInput.value);
+      const filteredBank = bank.filter((q) => state.selectedLevels.includes(q.levelBadge));
+      if (countInput) state.examCount = clampExamCount(countInput.value, filteredBank.length);
       startQuiz();
       return;
     }
@@ -2043,7 +2813,8 @@
     const target = event.target;
     if (!(target instanceof HTMLInputElement)) return;
     if (target.getAttribute("data-action") !== "exam-count") return;
-    const nextCount = clampExamCount(target.value);
+    const filteredBank = bank.filter((q) => state.selectedLevels.includes(q.levelBadge));
+    const nextCount = clampExamCount(target.value, filteredBank.length);
     state.examCount = nextCount;
     if (String(nextCount) !== target.value) {
       target.value = String(nextCount);
@@ -2069,3 +2840,5 @@
 </script>
 </body>
 </html>
+
+
