@@ -2395,7 +2395,7 @@
     const isNarrow = window.innerWidth < 760;
     const dropCount = isNarrow ? 36 : 64;
     const labels = [
-      { cls: "completion", text: "ðŸ Completion Bulletin" },
+      { cls: "completion", text: " Completion Bulletin" },
       { cls: performanceBulletin.cls, text: `${performanceBulletin.icon} ${performanceBulletin.title}` },
       { cls: performanceBulletin.cls, text: "ðŸŽ‰ Quiz Completed" },
       { cls: "completion", text: "âœ¨ Achievement" },
@@ -2697,7 +2697,7 @@
       percent >= 50 ? "Fair result. Review key concepts and retry." :
       "Retry after a quick concept review.";
     const performanceBulletin =
-      percent >= 85 ? { cls: "win", icon: "ðŸ†", title: "Win Bulletin", text: "Outstanding performance in this quiz." } :
+      percent >= 85 ? { cls: "win", icon: "", title: "Win Bulletin", text: "Outstanding performance in this quiz." } :
       percent >= 70 ? { cls: "good", icon: "âœ…", title: "Great Bulletin", text: "Strong score with small room to improve." } :
       percent >= 50 ? { cls: "review", icon: "ðŸ“˜", title: "Review Bulletin", text: "Fair result. A short review will boost your score." } :
       { cls: "retry", icon: "ðŸ”", title: "Retry Bulletin", text: "Try again after a quick review." };
